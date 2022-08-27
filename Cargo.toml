@@ -1,0 +1,15 @@
+[package]
+name = "hakoniwa-code-runner"
+version = "0.1.0"
+description = "Run code snippets in a variety of languages over network."
+keywords = ["code-execution", "code-runner"]
+homepage = "https://github.com/souk4711/hakoniwa-code-runner"
+repository = "https://github.com/souk4711/hakoniwa-code-runner"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+edition = "2021"
+
+[dependencies]
+clap = { version = "3.2.13", features = ["derive"] }
+hakoniwa = "0.4.3"
+rust-embed = "6.4.0"
