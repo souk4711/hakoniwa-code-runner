@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package languages;
+
+import "shared/language.proto";
+
+service Languages {
+  rpc Index(IndexRequest) returns (IndexResponse);
+}
+
+message IndexRequest {
+}
+
+message IndexResponse {
+  repeated shared.Language languages = 1;
+}

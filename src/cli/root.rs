@@ -4,7 +4,7 @@ use crate::cli::start::StartCommand;
 
 #[derive(Subcommand)]
 enum Commands {
-    /// Start
+    /// Start a server
     Start(StartCommand),
 }
 
