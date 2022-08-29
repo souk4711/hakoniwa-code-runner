@@ -1,0 +1,5 @@
+[lang.c]
+name = "C"
+
+[lang.cpp]
+name = "C Plus Plus"

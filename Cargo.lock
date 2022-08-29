@@ -444,7 +444,9 @@ dependencies = [
  "hakoniwa",
  "prost",
  "rust-embed",
+ "serde",
  "tokio",
+ "toml",
  "tonic",
  "tonic-build",
 ]

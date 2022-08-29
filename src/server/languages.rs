@@ -1,8 +1,9 @@
 use tonic::{Request, Response, Status};
 
-use crate::pb::languages::{
-    languages_server::{Languages as LanguagesService, LanguagesServer},
-    IndexRequest, IndexResponse,
+use crate::pb::{
+    languages::languages_server::{Languages as LanguagesService, LanguagesServer},
+    languages::{IndexRequest, IndexResponse},
+    shared::Language,
 };
 
 pub fn service(server: super::Server) -> LanguagesServer<super::Server> {
@@ -15,7 +16,15 @@ impl LanguagesService for super::Server {
         &self,
         _request: Request<IndexRequest>,
     ) -> Result<Response<IndexResponse>, Status> {
-        let response = IndexResponse { languages: vec![] };
+        let app = &*self.app;
+        let languages = app
+            .executors()
+            .map(|executor| Language {
+                id: executor.id.to_string(),
+                name: executor.name.to_string(),
+            })
+            .collect();
+        let response = IndexResponse { languages };
         Ok(Response::new(response))
     }
 }
