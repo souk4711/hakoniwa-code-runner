@@ -2,8 +2,7 @@ use tonic::{Request, Response, Status};
 
 use crate::pb::{
     languages::languages_server::{Languages as LanguagesService, LanguagesServer},
-    languages::{IndexRequest, IndexResponse},
-    shared::Language,
+    languages::{IndexRequest, IndexResponse, Language},
 };
 
 pub fn service(server: super::Server) -> LanguagesServer<super::Server> {

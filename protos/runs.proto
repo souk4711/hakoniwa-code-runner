@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package runs;
+
+service Runs {
+  rpc Create(CreateRequest) returns (CreateResponse);
+}
+
+message File {
+  string name = 1;
+  string content = 2;
+}
+
+message CreateRequest {
+  string lang = 1;
+  repeated File files = 2;
+}
+
+message CreateResponse {
+}

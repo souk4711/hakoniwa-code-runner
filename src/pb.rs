@@ -7,4 +7,4 @@ macro_rules! include_proto_under_mod {
 }
 
 include_proto_under_mod!(languages, "languages");
-include_proto_under_mod!(shared, "shared");
+include_proto_under_mod!(runs, "runs");
