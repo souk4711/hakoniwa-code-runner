@@ -7,8 +7,8 @@ service Runs {
 }
 
 message Duration {
-  int64 seconds = 1;
-  int32 nanos = 2;
+  uint64 seconds = 1;
+  uint32 nanos = 2;
 }
 
 message File {

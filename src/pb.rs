@@ -1,10 +1,16 @@
-macro_rules! include_proto_under_mod {
-    ($mod:ident, $proto:expr) => {
-        pub mod $mod {
-            tonic::include_proto!($proto);
-        }
-    };
+pub mod languages {
+    tonic::include_proto!("languages");
 }
 
-include_proto_under_mod!(languages, "languages");
-include_proto_under_mod!(runs, "runs");
+pub mod runs {
+    tonic::include_proto!("runs");
+
+    impl From<std::time::Duration> for Duration {
+        fn from(d: std::time::Duration) -> Self {
+            Self {
+                seconds: d.as_secs(),
+                nanos: d.subsec_nanos(),
+            }
+        }
+    }
+}

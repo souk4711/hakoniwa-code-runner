@@ -2,19 +2,19 @@ use anyhow::Result;
 use chrono::prelude::*;
 use std::{fs, path::PathBuf, time::Duration};
 
-use crate::{contrib, pb};
+use crate::contrib;
 use hakoniwa::Sandbox;
 
 pub struct ExecutorFile {
-    name: String,
-    content: String,
+    pub(crate) name: String,
+    pub(crate) content: String,
 }
 
-impl From<pb::runs::File> for ExecutorFile {
-    fn from(f: pb::runs::File) -> Self {
+impl ExecutorFile {
+    pub fn new(name: &str, content: &str) -> Self {
         Self {
-            name: f.name,
-            content: f.content,
+            name: name.to_string(),
+            content: content.to_string(),
         }
     }
 }

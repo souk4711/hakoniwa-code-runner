@@ -28,7 +28,7 @@ impl RunsService for super::Server {
             &request
                 .files
                 .into_iter()
-                .map(ExecutorFile::from)
+                .map(|f| ExecutorFile::new(&f.name, &f.content))
                 .collect::<Vec<_>>(),
         );
 
@@ -39,18 +39,9 @@ impl RunsService for super::Server {
             stderr: r.stderr,
             exit_code: r.exit_code,
             start_time: r.start_time.map(|v| v.to_string()),
-            real_time: r.real_time.map(|v| Duration {
-                seconds: v.as_secs() as i64,
-                nanos: v.subsec_nanos() as i32,
-            }),
-            system_time: r.system_time.map(|v| Duration {
-                seconds: v.as_secs() as i64,
-                nanos: v.subsec_nanos() as i32,
-            }),
-            user_time: r.user_time.map(|v| Duration {
-                seconds: v.as_secs() as i64,
-                nanos: v.subsec_nanos() as i32,
-            }),
+            real_time: r.real_time.map(Duration::from),
+            system_time: r.system_time.map(Duration::from),
+            user_time: r.user_time.map(Duration::from),
             max_rss: r.max_rss,
         };
         Ok(Response::new(response))
