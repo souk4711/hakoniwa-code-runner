@@ -1,5 +1,22 @@
 [lang.c]
 name = "C"
 
+[lang.c.compile]
+command = ["/usr/bin/gcc", "--static", "main.c", "-o", "main"]
+sandbox = "embed://policies/c.compilebox.toml"
+
+[lang.c.execute]
+command = ["/hako/main"]
+sandbox = "embed://policies/c.executebox.toml"
+
+
 [lang.cpp]
 name = "C Plus Plus"
+
+[lang.cpp.compile]
+command = ["/usr/bin/g++", "--static", "main.cpp", "-o", "main"]
+sandbox = "embed://policies/cpp.compilebox.toml"
+
+[lang.cpp.execute]
+command = ["/hako/main"]
+sandbox = "embed://policies/cpp.executebox.toml"

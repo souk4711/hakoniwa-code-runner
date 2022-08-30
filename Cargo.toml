@@ -11,11 +11,14 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.62"
+chrono = "0.4.22"
 clap = { version = "3.2.13", features = ["derive"] }
+fastrand = "1.8.0"
 hakoniwa = "0.4.3"
 prost = "0.11.0"
 rust-embed = "6.4.0"
 serde = { version = "1.0.144", features = ["derive"] }
+serde_json = "1.0.85"
 tokio = { version = "1.20.1", features = ["rt-multi-thread"] }
 toml = "0.5.9"
 tonic = "0.8.0"

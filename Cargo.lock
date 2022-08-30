@@ -440,11 +440,14 @@ name = "hakoniwa-code-runner"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "chrono",
  "clap",
+ "fastrand",
  "hakoniwa",
  "prost",
  "rust-embed",
  "serde",
+ "serde_json",
  "tokio",
  "toml",
  "tonic",

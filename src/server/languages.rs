@@ -13,9 +13,11 @@ pub fn service(server: super::Server) -> LanguagesServer<super::Server> {
 impl LanguagesService for super::Server {
     async fn index(
         &self,
-        _request: Request<IndexRequest>,
+        request: Request<IndexRequest>,
     ) -> Result<Response<IndexResponse>, Status> {
+        let _request = request.into_inner();
         let app = &*self.app;
+
         let languages = app
             .executors()
             .map(|executor| Language {
@@ -23,6 +25,7 @@ impl LanguagesService for super::Server {
                 name: executor.name.to_string(),
             })
             .collect();
+
         let response = IndexResponse { languages };
         Ok(Response::new(response))
     }

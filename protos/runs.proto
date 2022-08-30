@@ -6,6 +6,11 @@ service Runs {
   rpc Create(CreateRequest) returns (CreateResponse);
 }
 
+message Duration {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
 message File {
   string name = 1;
   string content = 2;
@@ -17,4 +22,14 @@ message CreateRequest {
 }
 
 message CreateResponse {
+  string status = 1;
+  string reason = 2;
+  string stdout = 3;
+  string stderr = 4;
+  optional int32 exit_code = 5;
+  optional string start_time = 6;
+  optional Duration real_time = 7;
+  optional Duration system_time = 8;
+  optional Duration user_time = 9;
+  optional int64 max_rss = 10;
 }
