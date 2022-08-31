@@ -110,6 +110,19 @@ console.log("Hello, World!");
     }
 
     #[test]
+    fn test_run_lang_python() {
+        let result = executor("python").run(&[ExecutorFile::new(
+            "main.py",
+            r#"
+print('Hello, World!')
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
+
+    #[test]
     fn test_run_lang_ruby() {
         let result = executor("ruby").run(&[ExecutorFile::new(
             "main.rb",
@@ -117,7 +130,6 @@ console.log("Hello, World!");
 puts 'Hello, World!'
             "#,
         )]);
-        dbg!(&result);
         assert_eq!(result.status, "OK");
         assert_eq!(result.exit_code, Some(0));
         assert_eq!(result.stdout, "Hello, World!\n");
