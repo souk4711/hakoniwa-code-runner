@@ -41,4 +41,22 @@ mod executor_test {
         assert_eq!(result.exit_code, Some(0));
         assert_eq!(result.stdout, "Hello, World!\n");
     }
+
+    #[test]
+    fn test_run_lang_cpp() {
+        let result = executor("cpp").run(&[ExecutorFile::new(
+            "main.cpp",
+            r#"
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!\n";
+    return 0;
+}
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
 }
