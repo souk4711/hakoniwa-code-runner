@@ -1,5 +1,5 @@
 [lang.c]
-name = "C"
+name = "C (GCC unknown)"
 
 [lang.c.compile]
 command = ["/usr/bin/gcc", "-std=c11", "-O2", "--static", "main.c", "-o", "main"]
@@ -11,7 +11,7 @@ sandbox = "embed://policies/c.executebox.toml"
 
 
 [lang.cpp]
-name = "C Plus Plus"
+name = "C++ (GCC unknown)"
 
 [lang.cpp.compile]
 command = ["/usr/bin/g++", "-std=c++14", "-O2", "--static", "main.cpp", "-o", "main"]
