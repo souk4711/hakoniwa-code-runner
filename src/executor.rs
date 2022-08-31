@@ -6,8 +6,8 @@ use crate::contrib;
 use hakoniwa::Sandbox;
 
 pub struct ExecutorFile {
-    pub(crate) name: String,
-    pub(crate) content: String,
+    name: String,
+    content: String,
 }
 
 impl ExecutorFile {

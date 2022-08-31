@@ -20,3 +20,15 @@ sandbox = "embed://policies/cpp.compilebox.toml"
 [lang.cpp.execute]
 command = ["/hako/main"]
 sandbox = "embed://policies/cpp.executebox.toml"
+
+
+[lang.go]
+name = "Golang"
+
+[lang.go.compile]
+command = ["/usr/bin/go", "build", "main.go"]
+sandbox = "embed://policies/go.compilebox.toml"
+
+[lang.go.execute]
+command = ["/hako/main"]
+sandbox = "embed://policies/go.executebox.toml"
