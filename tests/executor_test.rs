@@ -95,4 +95,17 @@ class Main {
         assert_eq!(result.exit_code, Some(0));
         assert_eq!(result.stdout, "Hello, World!\n");
     }
+
+    #[test]
+    fn test_run_lang_javascript() {
+        let result = executor("javascript").run(&[ExecutorFile::new(
+            "main.js",
+            r#"
+console.log("Hello, World!");
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
 }
