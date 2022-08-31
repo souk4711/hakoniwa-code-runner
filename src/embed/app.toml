@@ -23,10 +23,10 @@ sandbox = "embed://policies/cpp.executebox.toml"
 
 
 [lang.go]
-name = "Golang"
+name = "Golang (1.19)"
 
 [lang.go.compile]
-command = ["/usr/bin/go", "build", "main.go"]
+command = ["/opt/go-1.19/bin/go", "build", "main.go"]
 sandbox = "embed://policies/go.compilebox.toml"
 
 [lang.go.execute]
