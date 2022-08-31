@@ -52,3 +52,11 @@ name = "Python (3.10.6)"
 [lang.python.execute]
 command = ["/opt/python-3.10.6/bin/python", "main.py"]
 sandbox = "embed://policies/python.executebox.toml"
+
+
+[lang.ruby]
+name = "Ruby (3.1.2)"
+
+[lang.ruby.execute]
+command = ["/opt/ruby-3.1.2/bin/ruby", "main.rb"]
+sandbox = "embed://policies/ruby.executebox.toml"

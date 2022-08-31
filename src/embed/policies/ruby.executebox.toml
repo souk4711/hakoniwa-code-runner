@@ -1,0 +1,54 @@
+mounts = [
+  { source = "/lib"           , target = "/lib"            },
+  { source = "/lib64"         , target = "/lib64"          },
+  { source = "/usr/lib"       , target = "/usr/lib"        },
+  { source = "/usr/lib64"     , target = "/usr/lib64"      },
+  { source = "/opt/ruby-3.1.2", target = "/opt/ruby-3.1.2" },
+]
+
+[limits]
+as = 256000000  # 256MB
+core = 0        # no core file
+cpu = 2         # 2 seconds
+fsize = 0       # no output file
+nofile = 32     # 32 max fd
+walltime = 5    # 5 seconds
+
+[seccomp]
+syscalls = [
+  "access",
+  "arch_prctl",
+  "brk",
+  "close",
+  "connect",
+  "dup",
+  "execve",
+  "exit_group",
+  "fcntl",
+  "futex",
+  "getcwd",
+  "getdents64",
+  "getegid",
+  "geteuid",
+  "getgid",
+  "getrandom",
+  "getuid",
+  "ioctl",
+  "lseek",
+  "mmap",
+  "mprotect",
+  "munmap",
+  "newfstatat",
+  "openat",
+  "pread64",
+  "prlimit64",
+  "read",
+  "readlink",
+  "rseq",
+  "rt_sigaction",
+  "set_robust_list",
+  "set_tid_address",
+  "socket",
+  "sysinfo",
+  "write",
+]
