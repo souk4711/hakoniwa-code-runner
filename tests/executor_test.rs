@@ -134,4 +134,18 @@ puts 'Hello, World!'
         assert_eq!(result.exit_code, Some(0));
         assert_eq!(result.stdout, "Hello, World!\n");
     }
+
+    #[test]
+    fn test_run_lang_typescript() {
+        let result = executor("typescript").run(&[ExecutorFile::new(
+            "main.ts",
+            r#"
+let message: string = 'Hello, World!';
+console.log(message);
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
 }
