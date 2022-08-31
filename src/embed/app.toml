@@ -3,11 +3,11 @@ name = "C (GCC unknown)"
 
 [lang.c.compile]
 command = ["/usr/bin/gcc", "-std=c11", "-O2", "--static", "main.c", "-o", "main"]
-sandbox = "embed://policies/c.compilebox.toml"
+sandbox = "embed://lang-c/compilebox.toml"
 
 [lang.c.execute]
 command = ["/hako/main"]
-sandbox = "embed://policies/c.executebox.toml"
+sandbox = "embed://lang-c/executebox.toml"
 
 
 [lang.cpp]
@@ -15,11 +15,11 @@ name = "C++ (GCC unknown)"
 
 [lang.cpp.compile]
 command = ["/usr/bin/g++", "-std=c++14", "-O2", "--static", "main.cpp", "-o", "main"]
-sandbox = "embed://policies/cpp.compilebox.toml"
+sandbox = "embed://lang-cpp/compilebox.toml"
 
 [lang.cpp.execute]
 command = ["/hako/main"]
-sandbox = "embed://policies/cpp.executebox.toml"
+sandbox = "embed://lang-cpp/executebox.toml"
 
 
 [lang.go]
@@ -27,11 +27,11 @@ name = "Golang (1.19)"
 
 [lang.go.compile]
 command = ["/opt/go-1.19/bin/go", "build", "main.go"]
-sandbox = "embed://policies/go.compilebox.toml"
+sandbox = "embed://lang-go/compilebox.toml"
 
 [lang.go.execute]
 command = ["/hako/main"]
-sandbox = "embed://policies/go.executebox.toml"
+sandbox = "embed://lang-go/executebox.toml"
 
 
 [lang.java]
@@ -39,11 +39,11 @@ name = "Java (OpenJDK 18)"
 
 [lang.java.compile]
 command = ["/opt/openjdk-18/bin/javac", "main.java"]
-sandbox = "embed://policies/java.compilebox.toml"
+sandbox = "embed://lang-java/compilebox.toml"
 
 [lang.java.execute]
 command = ["/opt/openjdk-18/bin/java", "-Xmx256m", "Main"]
-sandbox = "embed://policies/java.executebox.toml"
+sandbox = "embed://lang-java/executebox.toml"
 
 
 [lang.javascript]
@@ -51,7 +51,7 @@ name = "Javascript (Node.js 18.8.0)"
 
 [lang.javascript.execute]
 command = ["/opt/nodejs-18.8.0/bin/node", "--max-old-space-size=256", "main.js"]
-sandbox = "embed://policies/javascript.executebox.toml"
+sandbox = "embed://lang-javascript/executebox.toml"
 
 
 [lang.python]
@@ -59,7 +59,7 @@ name = "Python (3.10.6)"
 
 [lang.python.execute]
 command = ["/opt/python-3.10.6/bin/python3", "main.py"]
-sandbox = "embed://policies/python.executebox.toml"
+sandbox = "embed://lang-python/executebox.toml"
 
 
 [lang.ruby]
@@ -67,16 +67,16 @@ name = "Ruby (3.1.2)"
 
 [lang.ruby.execute]
 command = ["/opt/ruby-3.1.2/bin/ruby", "main.rb"]
-sandbox = "embed://policies/ruby.executebox.toml"
+sandbox = "embed://lang-ruby/executebox.toml"
 
 
 [lang.typescript]
 name = "Typescript (4.8.2)"
 
-[lang.tyepscript.compile]
+[lang.typescript.compile]
 command = ["/opt/nodejs-18.8.0/bin/tsc", "main.ts", "--outFile", "main.js"]
-sandbox = "embed://policies/typescript.executebox.toml"
+sandbox = "embed://lang-typescript/executebox.toml"
 
-[lang.tyepscript.execute]
+[lang.typescript.execute]
 command = ["/opt/nodejs-18.8.0/bin/node", "--max-old-space-size=256", "main.js"]
-sandbox = "embed://policies/typescript.executebox.toml"
+sandbox = "embed://lang-typescript/executebox.toml"
