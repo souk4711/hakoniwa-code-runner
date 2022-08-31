@@ -1,5 +1,6 @@
 use anyhow::Result;
 use chrono::prelude::*;
+use serde_variant::to_variant_name;
 use std::{fs, path::PathBuf, time::Duration};
 
 use crate::contrib;
@@ -52,7 +53,7 @@ impl ExecutorResult {
 impl From<hakoniwa::ExecutorResult> for ExecutorResult {
     fn from(r: hakoniwa::ExecutorResult) -> Self {
         Self {
-            status: serde_json::to_string(&r.status).unwrap(),
+            status: to_variant_name(&r.status).unwrap().to_string(),
             reason: r.reason,
             exit_code: r.exit_code,
             start_time: r.start_time,
