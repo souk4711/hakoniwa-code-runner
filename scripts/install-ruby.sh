@@ -10,5 +10,7 @@ mkdir -p /tmp/ruby-$VERSION && tar -xf /tmp/ruby-$VERSION.tar.gz -C /tmp/ruby-$V
 rm /tmp/ruby-$VERSION.tar.gz
 
 cd /tmp/ruby-$VERSION
-mkdir -p $INSTALLDIR && ./configure --prefix=$INSTALLDIR && make -j "$(nproc)" && make -j "$(nproc)" install
-rm -rf /tmp/ruby-$VERSION
+./configure --prefix=$INSTALLDIR && make -j "$(nproc)"
+sudo mkdir -p $INSTALLDIR
+sudo make -j "$(nproc)" install
+sudo rm -rf /tmp/ruby-$VERSION

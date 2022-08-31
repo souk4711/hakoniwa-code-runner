@@ -10,5 +10,7 @@ mkdir -p /tmp/python-$VERSION && tar -xf /tmp/python-$VERSION.tar.gz -C /tmp/pyt
 rm /tmp/python-$VERSION.tar.gz
 
 cd /tmp/python-$VERSION
-mkdir -p $INSTALLDIR && ./configure --prefix=$INSTALLDIR && make -j "$(nproc)" && make -j "$(nproc)" install
-rm -rf /tmp/python-$VERSION
+./configure --prefix=$INSTALLDIR && make -j "$(nproc)"
+sudo mkdir -p $INSTALLDIR
+sudo make -j "$(nproc)" install
+sudo rm -rf /tmp/python-$VERSION
