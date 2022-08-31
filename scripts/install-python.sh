@@ -13,4 +13,4 @@ cd /tmp/python-$VERSION
 ./configure --prefix=$INSTALLDIR && make -j "$(nproc)"
 sudo mkdir -p $INSTALLDIR
 sudo make -j "$(nproc)" install
-rm -rf /tmp/python-$VERSION
+sudo rm -rf /tmp/python-$VERSION

@@ -13,4 +13,4 @@ cd /tmp/ruby-$VERSION
 ./configure --prefix=$INSTALLDIR && make -j "$(nproc)"
 sudo mkdir -p $INSTALLDIR
 sudo make -j "$(nproc)" install
-rm -rf /tmp/ruby-$VERSION
+sudo rm -rf /tmp/ruby-$VERSION

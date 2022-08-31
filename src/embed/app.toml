@@ -58,7 +58,7 @@ sandbox = "embed://policies/javascript.executebox.toml"
 name = "Python (3.10.6)"
 
 [lang.python.execute]
-command = ["/opt/python-3.10.6/bin/python", "main.py"]
+command = ["/opt/python-3.10.6/bin/python3", "main.py"]
 sandbox = "embed://policies/python.executebox.toml"
 
 
