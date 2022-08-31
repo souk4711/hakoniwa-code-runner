@@ -14,4 +14,7 @@ contents = ""
 
 [env]
 HOME = "/hako"
-PATH = "/usr/bin"
+
+[limits]
+fsize = 32000000  # 32MB
+walltime = 2      # 2 seconds

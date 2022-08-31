@@ -1,3 +1,4 @@
+use chrono::prelude::*;
 use tonic::{Request, Response, Status};
 
 use crate::{
@@ -38,7 +39,9 @@ impl RunsService for super::Server {
             stdout: r.stdout,
             stderr: r.stderr,
             exit_code: r.exit_code,
-            start_time: r.start_time.map(|v| v.to_string()),
+            start_time: r
+                .start_time
+                .map(|v| v.to_rfc3339_opts(SecondsFormat::Nanos, true)),
             real_time: r.real_time.map(Duration::from),
             system_time: r.system_time.map(Duration::from),
             user_time: r.user_time.map(Duration::from),
