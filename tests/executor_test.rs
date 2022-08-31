@@ -78,4 +78,21 @@ func main() {
         assert_eq!(result.exit_code, Some(0));
         assert_eq!(result.stdout, "Hello, World!\n");
     }
+
+    #[test]
+    fn test_run_lang_java() {
+        let result = executor("java").run(&[ExecutorFile::new(
+            "main.java",
+            r#"
+class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
 }
