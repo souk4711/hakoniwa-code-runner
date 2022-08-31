@@ -6,6 +6,10 @@ mounts = [
   { source = "/opt/openjdk-18", target = "/opt/openjdk-18" },
 ]
 
+[env]
+JAVA_HOME = "/opt/openjdk-18"
+PATH = "/opt/openjdk-18/bin"
+
 [limits]
 # as = 256000000  # use -Xmx256m
 core = 0        # no core file

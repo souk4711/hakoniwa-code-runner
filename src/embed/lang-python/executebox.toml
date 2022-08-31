@@ -6,6 +6,9 @@ mounts = [
   { source = "/opt/python-3.10.6", target = "/opt/python-3.10.6" },
 ]
 
+[env]
+PATH = "/opt/python-3.10.6/bin"
+
 [limits]
 as = 256000000  # 256MB
 core = 0        # no core file

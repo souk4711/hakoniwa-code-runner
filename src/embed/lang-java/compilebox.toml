@@ -6,6 +6,10 @@ mounts = [
   { source = "/opt/openjdk-18", target = "/opt/openjdk-18" },
 ]
 
+[env]
+JAVA_HOME = "/opt/openjdk-18"
+PATH = "/opt/openjdk-18/bin"
+
 [limits]
 fsize = 32000000  # 32MB
 walltime = 2      # 2 seconds

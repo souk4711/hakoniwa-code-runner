@@ -6,6 +6,9 @@ mounts = [
   { source = "/opt/nodejs-18.8.0", target = "/opt/nodejs-18.8.0" },
 ]
 
+[env]
+PATH = "/opt/nodejs-18.8.0/bin"
+
 [limits]
 # as = 256000000  # use --max-old-space-size=256
 core = 0        # no core file

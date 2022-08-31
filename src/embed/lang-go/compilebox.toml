@@ -13,6 +13,7 @@ contents = ""
 
 [env]
 GOCACHE = "/tmp"
+PATH = "/opt/go-1.19/bin"
 
 [limits]
 fsize = 32000000  # 32MB

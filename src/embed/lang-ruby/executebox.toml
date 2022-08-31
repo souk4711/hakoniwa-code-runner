@@ -6,6 +6,9 @@ mounts = [
   { source = "/opt/ruby-3.1.2", target = "/opt/ruby-3.1.2" },
 ]
 
+[env]
+PATH = "/opt/ruby-3.1.2/bin"
+
 [limits]
 as = 256000000  # 256MB
 core = 0        # no core file
