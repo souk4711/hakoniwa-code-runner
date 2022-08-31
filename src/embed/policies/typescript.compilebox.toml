@@ -1,0 +1,11 @@
+mounts = [
+  { source = "/lib"              , target = "/lib"               },
+  { source = "/lib64"            , target = "/lib64"             },
+  { source = "/usr/lib"          , target = "/usr/lib"           },
+  { source = "/usr/lib64"        , target = "/usr/lib64"         },
+  { source = "/opt/nodejs-18.8.0", target = "/opt/nodejs-18.8.0" },
+]
+
+[limits]
+fsize = 32000000  # 32MB
+walltime = 2      # 2 seconds

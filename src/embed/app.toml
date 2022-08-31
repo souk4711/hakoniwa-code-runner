@@ -68,3 +68,15 @@ name = "Ruby (3.1.2)"
 [lang.ruby.execute]
 command = ["/opt/ruby-3.1.2/bin/ruby", "main.rb"]
 sandbox = "embed://policies/ruby.executebox.toml"
+
+
+[lang.typescript]
+name = "Typescript (4.8.2)"
+
+[lang.tyepscript.compile]
+command = ["/opt/nodejs-18.8.0/bin/tsc", "main.ts", "--outFile", "main.js"]
+sandbox = "embed://policies/typescript.executebox.toml"
+
+[lang.tyepscript.execute]
+command = ["/opt/nodejs-18.8.0/bin/node", "--max-old-space-size=256", "main.js"]
+sandbox = "embed://policies/typescript.executebox.toml"
