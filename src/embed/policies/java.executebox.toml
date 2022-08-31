@@ -1,9 +1,9 @@
 mounts = [
-  { source = "/usr/bin/java", target = "/usr/bin/java" },
-  { source = "/lib"         , target = "/lib"          },
-  { source = "/lib64"       , target = "/lib64"        },
-  { source = "/usr/lib"     , target = "/usr/lib"      },
-  { source = "/usr/lib64"   , target = "/usr/lib64"    },
+  { source = "/lib"           , target = "/lib"            },
+  { source = "/lib64"         , target = "/lib64"          },
+  { source = "/usr/lib"       , target = "/usr/lib"        },
+  { source = "/usr/lib64"     , target = "/usr/lib64"      },
+  { source = "/opt/openjdk-18", target = "/opt/openjdk-18" },
 ]
 
 [limits]

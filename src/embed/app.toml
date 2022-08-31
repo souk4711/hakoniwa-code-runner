@@ -35,12 +35,12 @@ sandbox = "embed://policies/go.executebox.toml"
 
 
 [lang.java]
-name = "Java"
+name = "Java (OpenJDK 18)"
 
 [lang.java.compile]
-command = ["/usr/bin/javac", "main.java"]
+command = ["/opt/openjdk-18/bin/javac", "main.java"]
 sandbox = "embed://policies/java.compilebox.toml"
 
 [lang.java.execute]
-command = ["/usr/bin/java", "-Xmx256m", "Main"]
+command = ["/opt/openjdk-18/bin/java", "-Xmx256m", "Main"]
 sandbox = "embed://policies/java.executebox.toml"
