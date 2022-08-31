@@ -21,16 +21,16 @@ impl ExecutorFile {
 
 #[derive(Default, Debug)]
 pub struct ExecutorResult {
-    pub(crate) status: String,
-    pub(crate) reason: String,
-    pub(crate) exit_code: Option<i32>,
-    pub(crate) start_time: Option<DateTime<Utc>>,
-    pub(crate) real_time: Option<Duration>,
-    pub(crate) system_time: Option<Duration>,
-    pub(crate) user_time: Option<Duration>,
-    pub(crate) max_rss: Option<i64>,
-    pub(crate) stdout: String,
-    pub(crate) stderr: String,
+    pub status: String,
+    pub reason: String,
+    pub exit_code: Option<i32>,
+    pub start_time: Option<DateTime<Utc>>,
+    pub real_time: Option<Duration>,
+    pub system_time: Option<Duration>,
+    pub user_time: Option<Duration>,
+    pub max_rss: Option<i64>,
+    pub stdout: String,
+    pub stderr: String,
 }
 
 impl ExecutorResult {
@@ -78,7 +78,7 @@ pub struct Executor {
 }
 
 impl Executor {
-    pub fn new(id: &str, name: &str) -> Self {
+    pub(crate) fn new(id: &str, name: &str) -> Self {
         Self {
             id: id.to_string(),
             name: name.to_string(),
@@ -87,12 +87,20 @@ impl Executor {
         }
     }
 
-    pub fn with_compile_command<SC: AsRef<str>>(&mut self, command: &[SC], sandbox: Sandbox) {
+    pub(crate) fn with_compile_command<SC: AsRef<str>>(
+        &mut self,
+        command: &[SC],
+        sandbox: Sandbox,
+    ) {
         self.compile = command.iter().map(|c| String::from(c.as_ref())).collect();
         self.compilebox = sandbox;
     }
 
-    pub fn with_execute_command<SC: AsRef<str>>(&mut self, command: &[SC], sandbox: Sandbox) {
+    pub(crate) fn with_execute_command<SC: AsRef<str>>(
+        &mut self,
+        command: &[SC],
+        sandbox: Sandbox,
+    ) {
         self.execute = command.iter().map(|c| String::from(c.as_ref())).collect();
         self.executebox = sandbox;
     }
