@@ -1,0 +1,10 @@
+[lang.go]
+name = "Golang (1.19)"
+
+[lang.go.compile]
+command = ["/opt/go-1.19/bin/go", "build", "main.go"]
+sandbox = "embed://lang-go/compilebox.toml"
+
+[lang.go.execute]
+command = ["/hako/main"]
+sandbox = "embed://lang-go/executebox.toml"

@@ -1,10 +1,10 @@
-use anyhow::{anyhow, bail, Result};
+use anyhow::Result;
 use std::{
     collections::{hash_map::Values, HashMap},
-    fs, str,
+    str,
 };
 
-use crate::{AppConfig, Embed, Executor};
+use crate::{contrib, AppConfig, Executor};
 use hakoniwa::{Sandbox, SandboxPolicy};
 
 #[derive(Default)]
@@ -50,16 +50,7 @@ impl App {
     }
 
     fn build_sandbox(path: &str) -> Result<Sandbox> {
-        let sandbox_policy_data = match path.strip_prefix("embed://") {
-            Some(embed_path) => {
-                let f = Embed::get(embed_path).ok_or_else(|| anyhow!("{}: No such file", path))?;
-                str::from_utf8(&f.data).unwrap().to_string()
-            }
-            None => match fs::read_to_string(path) {
-                Ok(val) => val,
-                Err(err) => bail!("{}: {}", path, err.to_string()),
-            },
-        };
+        let sandbox_policy_data = contrib::fs::read_to_string(path)?;
         let sandbox_policy = SandboxPolicy::from_str(&sandbox_policy_data)?;
         let mut sandbox = Sandbox::new();
         sandbox.with_policy(sandbox_policy);

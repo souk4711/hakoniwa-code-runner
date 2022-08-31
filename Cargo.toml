@@ -15,6 +15,8 @@ chrono = "0.4.22"
 clap = { version = "3.2.13", features = ["derive"] }
 fastrand = "1.8.0"
 hakoniwa = "0.4.3"
+handlebars = "4.3.3"
+lazy_static = "1.4.0"
 prost = "0.11.0"
 rust-embed = "6.4.0"
 serde = { version = "1.0.144", features = ["derive"] }

@@ -1,0 +1,6 @@
+[lang.javascript]
+name = "Javascript (Node.js 18.8.0)"
+
+[lang.javascript.execute]
+command = ["/opt/nodejs-18.8.0/bin/node", "--max-old-space-size=256", "main.js"]
+sandbox = "embed://lang-javascript/executebox.toml"

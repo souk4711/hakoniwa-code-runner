@@ -444,6 +444,8 @@ dependencies = [
  "clap",
  "fastrand",
  "hakoniwa",
+ "handlebars",
+ "lazy_static",
  "prost",
  "rust-embed",
  "serde",
