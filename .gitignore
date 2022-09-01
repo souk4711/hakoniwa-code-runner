@@ -1,2 +1,5 @@
 # Cargo target dir
 target
+
+# Testfiles
+src/embed/lang-*/[Mm]ain*

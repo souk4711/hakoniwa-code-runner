@@ -61,6 +61,25 @@ int main() {
     }
 
     #[test]
+    fn test_run_lang_d() {
+        let result = executor("d").run(&[ExecutorFile::new(
+            "main.d",
+            r#"
+import std.stdio;
+
+// Let's get going!
+void main()
+{
+    writeln("Hello, World!");
+}
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
+
+    #[test]
     #[ignore]
     fn test_run_lang_erlang() {
         let result = executor("erlang").run(&[ExecutorFile::new(

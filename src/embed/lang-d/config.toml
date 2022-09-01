@@ -1,0 +1,10 @@
+[lang.d]
+name = "D (2.100.0)"
+
+[lang.d.compile]
+command = ["/opt/d-2.100.0/linux/bin64/dmd", "main.d"]
+sandbox = "embed://lang-d/compilebox.toml"
+
+[lang.d.execute]
+command = ["/hako/main"]
+sandbox = "embed://lang-d/executebox.toml"
