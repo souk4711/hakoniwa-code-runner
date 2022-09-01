@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod executor_test {
-    use hakoniwa_code_runner::{App, AppConfig, Executor, ExecutorFile};
+    use hakoniwa_code_runner::{App, AppConfig, ExecutorFile};
     use lazy_static::lazy_static;
     use rust_embed::RustEmbed;
     use std::str;
@@ -21,32 +21,39 @@ mod executor_test {
         };
     }
 
-    fn executor(lang: &str) -> &Executor {
-        APP.get_executor(lang).unwrap()
-    }
-
-    #[test]
-    fn test_run_lang_c() {
-        let result = executor("c").run(&[ExecutorFile::new(
-            "main.c",
-            r#"
-#include <stdio.h>
-    int main() {
-    printf("Hello, World!\n");
-    return 0;
-}
-            "#,
-        )]);
+    fn test_run_hello_world_example(lang: &str, files: &[ExecutorFile]) {
+        let executor = APP.get_executor(lang).unwrap();
+        let result = executor.run(files);
         assert_eq!(result.status, "OK");
         assert_eq!(result.exit_code, Some(0));
         assert_eq!(result.stdout, "Hello, World!\n");
     }
 
     #[test]
-    fn test_run_lang_cpp() {
-        let result = executor("cpp").run(&[ExecutorFile::new(
-            "main.cpp",
-            r#"
+    fn test_run_hello_world_example_lang_c() {
+        test_run_hello_world_example(
+            "c",
+            &[ExecutorFile::new(
+                "main.c",
+                r#"
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+            "#,
+            )],
+        );
+    }
+
+    #[test]
+    fn test_run_hello_world_example_lang_cpp() {
+        test_run_hello_world_example(
+            "cpp",
+            &[ExecutorFile::new(
+                "main.cpp",
+                r#"
 #include <iostream>
 
 int main() {
@@ -54,152 +61,148 @@ int main() {
     return 0;
 }
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_d() {
-        let result = executor("d").run(&[ExecutorFile::new(
-            "main.d",
-            r#"
+    fn test_run_hello_world_example_lang_d() {
+        test_run_hello_world_example(
+            "d",
+            &[ExecutorFile::new(
+                "main.d",
+                r#"
 import std.stdio;
 
-// Let's get going!
-void main()
-{
+void main() {
     writeln("Hello, World!");
 }
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
     #[ignore]
-    fn test_run_lang_erlang() {
-        let result = executor("erlang").run(&[ExecutorFile::new(
-            "main.erl",
-            r#"
+    fn test_run_hello_world_example_lang_erlang() {
+        test_run_hello_world_example(
+            "erlang",
+            &[ExecutorFile::new(
+                "main.erl",
+                r#"
 -module(main).
 -export([start/0]).
 
 start() ->
     io:fwrite("Hello, World\n").
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_go() {
-        let result = executor("go").run(&[ExecutorFile::new(
-            "main.go",
-            r#"
+    fn test_run_hello_world_example_lang_go() {
+        test_run_hello_world_example(
+            "go",
+            &[ExecutorFile::new(
+                "main.go",
+                r#"
 package main
 
 import "fmt"
 
 func main() {
-  fmt.Println("Hello, World!")
+    fmt.Println("Hello, World!")
 }
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_java() {
-        let result = executor("java").run(&[ExecutorFile::new(
-            "main.java",
-            r#"
+    fn test_run_hello_world_example_lang_java() {
+        test_run_hello_world_example(
+            "java",
+            &[ExecutorFile::new(
+                "main.java",
+                r#"
 class Main {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!");
-  }
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
 }
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_javascript() {
-        let result = executor("javascript").run(&[ExecutorFile::new(
-            "main.js",
-            r#"
+    fn test_run_hello_world_example_lang_javascript() {
+        test_run_hello_world_example(
+            "javascript",
+            &[ExecutorFile::new(
+                "main.js",
+                r#"
 console.log("Hello, World!");
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_python() {
-        let result = executor("python").run(&[ExecutorFile::new(
-            "main.py",
-            r#"
+    fn test_run_hello_world_example_lang_python() {
+        test_run_hello_world_example(
+            "python",
+            &[ExecutorFile::new(
+                "main.py",
+                r#"
 print('Hello, World!')
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_ruby() {
-        let result = executor("ruby").run(&[ExecutorFile::new(
-            "main.rb",
-            r#"
+    fn test_run_hello_world_example_lang_ruby() {
+        test_run_hello_world_example(
+            "ruby",
+            &[ExecutorFile::new(
+                "main.rb",
+                r#"
 puts 'Hello, World!'
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_scala() {
-        let result = executor("scala").run(&[ExecutorFile::new(
-            "main.scala",
-            r#"
+    fn test_run_hello_world_example_lang_scala() {
+        test_run_hello_world_example(
+            "scala",
+            &[ExecutorFile::new(
+                "main.scala",
+                r#"
 object Main {
     def main(args: Array[String]) = {
         println("Hello, World!")
     }
 }
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 
     #[test]
-    fn test_run_lang_typescript() {
-        let result = executor("typescript").run(&[ExecutorFile::new(
-            "main.ts",
-            r#"
+    fn test_run_hello_world_example_lang_typescript() {
+        test_run_hello_world_example(
+            "typescript",
+            &[ExecutorFile::new(
+                "main.ts",
+                r#"
 let message: string = 'Hello, World!';
 console.log(message);
             "#,
-        )]);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+            )],
+        );
     }
 }
