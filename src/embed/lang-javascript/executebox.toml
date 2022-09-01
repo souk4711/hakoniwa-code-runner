@@ -14,7 +14,6 @@ PATH = "/opt/nodejs-18.8.0/bin"
 core = 0        # no core file
 cpu = 2         # 2 seconds
 fsize = 0       # no output file
-nofile = 32     # 32 max fd
 walltime = 5    # 5 seconds
 
 [seccomp]
@@ -64,6 +63,7 @@ syscalls = [
   "rt_sigreturn",
   "set_robust_list",
   "set_tid_address",
+  "sched_yield",
   "statx",
   "sysinfo",
   "tgkill",

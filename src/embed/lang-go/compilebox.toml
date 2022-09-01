@@ -17,4 +17,4 @@ PATH = "/opt/go-1.19/bin"
 
 [limits]
 fsize = 32000000  # 32MB
-walltime = 2      # 2 seconds
+walltime = 5      # 5 seconds

@@ -136,6 +136,23 @@ puts 'Hello, World!'
     }
 
     #[test]
+    fn test_run_lang_scala() {
+        let result = executor("scala").run(&[ExecutorFile::new(
+            "main.scala",
+            r#"
+object Main {
+    def main(args: Array[String]) = {
+        println("Hello, World!")
+    }
+}
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
+
+    #[test]
     fn test_run_lang_typescript() {
         let result = executor("typescript").run(&[ExecutorFile::new(
             "main.ts",

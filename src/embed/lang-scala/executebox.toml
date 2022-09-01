@@ -1,0 +1,92 @@
+mounts = [
+  { source = "/dev/null"          , target = "/dev/null"            , rw = true },
+  { source = "/lib"               , target = "/lib"                },
+  { source = "/lib64"             , target = "/lib64"              },
+  { source = "/usr/lib"           , target = "/usr/lib"            },
+  { source = "/usr/lib64"         , target = "/usr/lib64"          },
+  { source = "/usr/bin/bash"      , target = "/usr/bin/bash"       },
+  { source = "/usr/bin/dirname"   , target = "/usr/bin/dirname"    },
+  { source = "/usr/bin/env"       , target = "/usr/bin/env"        },
+  { source = "/usr/bin/uname"     , target = "/usr/bin/uname"      },
+  { source = "/usr/bin/which"     , target = "/usr/bin/which"      },
+  { source = "/usr/share/terminfo", target = "/usr/share/terminfo" },
+  { source = "/opt/openjdk-18"    , target = "/opt/openjdk-18"     },
+  { source = "/opt/scala-3.1.3"   , target = "/opt/scala-3.1.3"    },
+]
+
+[env]
+SCALA_HOME = "/opt/scala-3.1.3"
+JAVA_HOME = "/opt/openjdk-18"
+PATH = "/opt/scala-3.1.3/bin:/opt/openjdk-18/bin:/usr/bin"
+
+[limits]
+# as = 256000000  # use -J-Xmx256m
+core = 0        # no core file
+cpu = 2         # 2 seconds
+fsize = 0       # no output file
+walltime = 5    # 5 seconds
+
+[seccomp]
+syscalls = [
+  "access",
+  "arch_prctl",
+  "brk",
+  "chdir",
+  "clock_getres",
+  "clock_nanosleep",
+  "clone",
+  "close",
+  "connect",
+  "dup2",
+  "execve",
+  "exit",
+  "exit_group",
+  "faccessat2",
+  "fchdir",
+  "fcntl",
+  "fstat",
+  "ftruncate",
+  "futex",
+  "getcwd",
+  "getdents64",
+  "getegid",
+  "geteuid",
+  "getgid",
+  "getpid",
+  "getppid",
+  "getpgrp",
+  "getrandom",
+  "getrusage",
+  "gettid",
+  "getuid",
+  "ioctl",
+  "lseek",
+  "madvise",
+  "mkdir",
+  "mmap",
+  "mprotect",
+  "munmap",
+  "newfstatat",
+  "openat",
+  "pipe2",
+  "prctl",
+  "pread64",
+  "prlimit64",
+  "read",
+  "readlink",
+  "rseq",
+  "rt_sigaction",
+  "rt_sigprocmask",
+  "rt_sigreturn",
+  "sched_getaffinity",
+  "sched_yield",
+  "set_robust_list",
+  "set_tid_address",
+  "stat",
+  "socket",
+  "sysinfo",
+  "uname",
+  "unlink",
+  "wait4",
+  "write",
+]
