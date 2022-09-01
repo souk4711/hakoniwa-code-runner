@@ -61,6 +61,7 @@ int main() {
     }
 
     #[test]
+    #[ignore]
     fn test_run_lang_erlang() {
         let result = executor("erlang").run(&[ExecutorFile::new(
             "main.erl",
