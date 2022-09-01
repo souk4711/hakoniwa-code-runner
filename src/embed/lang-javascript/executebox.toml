@@ -63,6 +63,7 @@ syscalls = [
   "rt_sigreturn",
   "set_robust_list",
   "set_tid_address",
+  "sched_getaffinity",
   "sched_yield",
   "statx",
   "sysinfo",

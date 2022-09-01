@@ -27,6 +27,7 @@ syscalls = [
   "rt_sigaction",
   "rt_sigprocmask",
   "sched_getaffinity",
+  "sched_yield",
   "setrlimit",
   "sigaltstack",
   "write",

@@ -57,6 +57,7 @@ syscalls = [
   "set_robust_list",
   "set_tid_address",
   "sched_getaffinity",
+  "sched_yield",
   "sigaltstack",
   "socket",
   "sysinfo",

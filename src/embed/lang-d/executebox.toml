@@ -32,6 +32,7 @@ syscalls = [
   "rseq",
   "rt_sigaction",
   "sched_getaffinity",
+  "sched_yield",
   "set_robust_list",
   "set_tid_address",
   "write",
