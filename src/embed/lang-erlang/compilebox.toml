@@ -1,0 +1,21 @@
+mounts = [
+  { source = "/dev/null"         , target = "/dev/null"           , rw = true },
+  { source = "/lib"              , target = "/lib"               },
+  { source = "/lib64"            , target = "/lib64"             },
+  { source = "/usr/lib"          , target = "/usr/lib"           },
+  { source = "/usr/lib64"        , target = "/usr/lib64"         },
+  { source = "/usr/bin/basename" , target = "/usr/bin/basename"  },
+  { source = "/usr/bin/bash"     , target = "/usr/bin/bash"      },
+  { source = "/usr/bin/dirname"  , target = "/usr/bin/dirname"   },
+  { source = "/usr/bin/sh"       , target = "/usr/bin/sh"        },
+  { source = "/bin/bash"         , target = "/bin/bash"          },
+  { source = "/bin/sh"           , target = "/bin/sh"            },
+  { source = "/opt/erlang-25.0.4", target = "/opt/erlang-25.0.4" },
+]
+
+[env]
+PATH = "/opt/erlang-25.0.4/bin:/usr/bin:/bin"
+
+[limits]
+fsize = 32000000  # 32MB
+walltime = 5      # 5 seconds

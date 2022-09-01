@@ -61,6 +61,23 @@ int main() {
     }
 
     #[test]
+    fn test_run_lang_erlang() {
+        let result = executor("erlang").run(&[ExecutorFile::new(
+            "main.erl",
+            r#"
+-module(main).
+-export([start/0]).
+
+start() ->
+    io:fwrite("Hello, World\n").
+            "#,
+        )]);
+        assert_eq!(result.status, "OK");
+        assert_eq!(result.exit_code, Some(0));
+        assert_eq!(result.stdout, "Hello, World!\n");
+    }
+
+    #[test]
     fn test_run_lang_go() {
         let result = executor("go").run(&[ExecutorFile::new(
             "main.go",

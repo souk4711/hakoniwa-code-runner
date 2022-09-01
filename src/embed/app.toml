@@ -1,5 +1,6 @@
 {{ render_to_string "embed://lang-c/config.toml" }}
 {{ render_to_string "embed://lang-cpp/config.toml" }}
+{{ render_to_string "embed://lang-erlang/config.toml" }}
 {{ render_to_string "embed://lang-go/config.toml" }}
 {{ render_to_string "embed://lang-java/config.toml" }}
 {{ render_to_string "embed://lang-javascript/config.toml" }}
