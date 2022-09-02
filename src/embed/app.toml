@@ -8,5 +8,6 @@
 {{ render_to_string "embed://lang-javascript/config.toml" }}
 {{ render_to_string "embed://lang-python/config.toml" }}
 {{ render_to_string "embed://lang-ruby/config.toml" }}
+{{ render_to_string "embed://lang-rust/config.toml" }}
 {{ render_to_string "embed://lang-scala/config.toml" }}
 {{ render_to_string "embed://lang-typescript/config.toml" }}

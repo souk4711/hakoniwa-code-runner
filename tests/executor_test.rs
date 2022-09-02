@@ -198,6 +198,21 @@ puts 'Hello, World!'
     }
 
     #[test]
+    fn test_run_hello_world_example_lang_rust() {
+        test_run_hello_world_example(
+            "rust",
+            &[ExecutorFile::new(
+                "main.rs",
+                r#"
+fn main() {
+    println!("Hello, World!");
+}
+            "#,
+            )],
+        );
+    }
+
+    #[test]
     fn test_run_hello_world_example_lang_scala() {
         test_run_hello_world_example(
             "scala",

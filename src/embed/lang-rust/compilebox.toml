@@ -1,0 +1,22 @@
+mounts = [
+  { source = "/bin"            , target = "/bin"             },
+  { source = "/lib"            , target = "/lib"             },
+  { source = "/lib64"          , target = "/lib64"           },
+  { source = "/usr/bin"        , target = "/usr/bin"         },
+  { source = "/usr/lib"        , target = "/usr/lib"         },
+  { source = "/usr/lib64"      , target = "/usr/lib64"       },
+  { source = "/opt/rust-1.63.0", target = "/opt/rust-1.63.0" },
+]
+
+[[files]]
+target = "/tmp/.keep"
+contents = ""
+
+[env]
+RUSTUP_HOME = "/opt/rust-1.63.0/.rustup"
+CARGO_HOME = "/opt/rust-1.63.0/.cargo"
+PATH = "/opt/rust-1.63.0/.cargo/bin:/usr/bin"
+
+[limits]
+fsize = 32000000  # 32MB
+walltime = 5      # 5 seconds
