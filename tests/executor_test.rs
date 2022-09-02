@@ -24,9 +24,17 @@ mod executor_test {
     fn test_run_hello_world_example(lang: &str, files: &[ExecutorFile]) {
         let executor = APP.get_executor(lang).unwrap();
         let result = executor.run(files);
-        assert_eq!(result.status, "OK");
-        assert_eq!(result.exit_code, Some(0));
-        assert_eq!(result.stdout, "Hello, World!\n");
+        match result.exit_code {
+            Some(0) => {
+                assert_eq!(result.stdout, "Hello, World!\n");
+            }
+            v => {
+                eprintln!("  CODE: {:?}: {}", v, result.reason);
+                eprint!("STDOUT:\n{}", result.stdout);
+                eprint!("STDERR:\n{}", result.stderr);
+                assert_eq!(v, Some(0));
+            }
+        }
     }
 
     #[test]
@@ -114,6 +122,20 @@ import "fmt"
 func main() {
     fmt.Println("Hello, World!")
 }
+            "#,
+            )],
+        );
+    }
+
+    #[test]
+    fn test_run_hello_world_example_lang_haskell() {
+        test_run_hello_world_example(
+            "haskell",
+            &[ExecutorFile::new(
+                "main.hs",
+                r#"
+main :: IO ()
+main = putStrLn "Hello, World!"
             "#,
             )],
         );

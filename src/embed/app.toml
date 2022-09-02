@@ -3,6 +3,7 @@
 {{ render_to_string "embed://lang-d/config.toml" }}
 {{! render_to_string "embed://lang-erlang/config.toml" }}
 {{ render_to_string "embed://lang-go/config.toml" }}
+{{ render_to_string "embed://lang-haskell/config.toml" }}
 {{ render_to_string "embed://lang-java/config.toml" }}
 {{ render_to_string "embed://lang-javascript/config.toml" }}
 {{ render_to_string "embed://lang-python/config.toml" }}
