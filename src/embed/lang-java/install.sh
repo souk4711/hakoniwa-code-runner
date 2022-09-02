@@ -7,6 +7,6 @@ DOWNLOADURI="https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138
 set -xe
 
 curl -fSsL $DOWNLOADURI -o /tmp/openjdk-$VERSION.tar.gz
-sudo mkdir -p $INSTALLDIR
-sudo tar -xf /tmp/openjdk-$VERSION.tar.gz -C $INSTALLDIR --strip-components=1
+mkdir -p $INSTALLDIR
+tar -xf /tmp/openjdk-$VERSION.tar.gz -C $INSTALLDIR --strip-components=1
 rm /tmp/openjdk-$VERSION.tar.gz

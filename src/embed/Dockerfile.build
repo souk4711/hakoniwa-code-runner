@@ -1,0 +1,4 @@
+FROM buildpack-deps:bullseye
+
+COPY install.sh /install.sh
+RUN sh /install.sh
