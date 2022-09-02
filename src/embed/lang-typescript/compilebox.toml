@@ -1,14 +1,15 @@
 mounts = [
+  { source = "/bin"              , target = "/bin"               },
   { source = "/lib"              , target = "/lib"               },
   { source = "/lib64"            , target = "/lib64"             },
+  { source = "/usr/bin"          , target = "/usr/bin"           },
   { source = "/usr/lib"          , target = "/usr/lib"           },
   { source = "/usr/lib64"        , target = "/usr/lib64"         },
-  { source = "/usr/bin/env"      , target = "/usr/bin/env"       },
   { source = "/opt/nodejs-18.8.0", target = "/opt/nodejs-18.8.0" },
 ]
 
 [env]
-PATH = "/opt/nodejs-18.8.0/bin"
+PATH = "/opt/nodejs-18.8.0/bin:/usr/bin"
 
 [limits]
 fsize = 32000000  # 32MB
