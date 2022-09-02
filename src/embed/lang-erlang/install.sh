@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 VERSION="25.0.4"
 INSTALLDIR="/opt/erlang-$VERSION"

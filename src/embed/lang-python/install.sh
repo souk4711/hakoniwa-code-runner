@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 VERSION="3.10.6"
 INSTALLDIR="/opt/python-$VERSION"

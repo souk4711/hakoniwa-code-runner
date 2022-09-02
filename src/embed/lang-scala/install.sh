@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 VERSION="3.1.3"
 INSTALLDIR="/opt/scala-$VERSION"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 VERSION="9.4.2"
 INSTALLDIR="/opt/haskell-$VERSION"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 VERSION="18.8.0"
 INSTALLDIR="/opt/nodejs-$VERSION"
@@ -9,3 +9,5 @@ curl -fSsL "https://nodejs.org/dist/v$VERSION/node-v$VERSION-linux-x64.tar.xz" -
 sudo mkdir -p $INSTALLDIR
 sudo tar -xf /tmp/nodejs-$VERSION.tar.gz -C $INSTALLDIR --strip-components=1
 rm /tmp/nodejs-$VERSION.tar.gz
+
+sudo $INSTALLDIR/bin/npm install --prefix $INSTALLDIR -g typescript@$VERSION

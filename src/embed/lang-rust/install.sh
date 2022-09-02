@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 VERSION="1.63.0"
 INSTALLDIR="/opt/rust-$VERSION"

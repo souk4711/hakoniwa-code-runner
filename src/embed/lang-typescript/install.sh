@@ -1,8 +1,5 @@
-#!/bin/bash
-
-VERSION="4.8.2"
-INSTALLDIR="/opt/nodejs-18.8.0"
+#!/usr/bin/env bash
 
 set -xe
 
-sudo $INSTALLDIR/bin/npm install --prefix $INSTALLDIR -g typescript@$VERSION
+/opt/nodejs-18.8.0/bin/tsc --version
