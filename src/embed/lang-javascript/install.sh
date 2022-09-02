@@ -9,5 +9,3 @@ curl -fSsL "https://nodejs.org/dist/v$VERSION/node-v$VERSION-linux-x64.tar.xz" -
 sudo mkdir -p $INSTALLDIR
 sudo tar -xf /tmp/nodejs-$VERSION.tar.gz -C $INSTALLDIR --strip-components=1
 rm /tmp/nodejs-$VERSION.tar.gz
-
-sudo npm install --prefix $INSTALLDIR -g typescript@4.8.2
