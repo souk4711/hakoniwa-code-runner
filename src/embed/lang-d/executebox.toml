@@ -5,9 +5,6 @@ mounts = [
   { source = "/usr/lib64"    , target = "/usr/lib64"     },
 ]
 
-[env]
-PATH = "/opt/d-2.100.0/linux/bin64:/usr/bin"
-
 [limits]
 as = 256000000  # 256MB
 core = 0        # no core file
