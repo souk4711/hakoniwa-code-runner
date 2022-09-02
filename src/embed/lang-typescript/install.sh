@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=""
+# VERSION=""
 INSTALLDIR="/opt/nodejs-18.8.0"
 
 set -xe
