@@ -14,7 +14,7 @@ target = "/tmp/.keep"
 contents = ""
 
 [env]
-PATH = "/opt/haskell-9.4.2/.ghcup/bin:/usr/bin"
+PATH = "/opt/haskell-9.4.2/.ghcup/bin:/usr/bin:/bin"
 
 [limits]
 fsize = 32000000  # 32MB

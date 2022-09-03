@@ -16,7 +16,7 @@ contents = ""
 [env]
 RUSTUP_HOME = "/opt/rust-1.63.0/.rustup"
 CARGO_HOME = "/opt/rust-1.63.0/.cargo"
-PATH = "/opt/rust-1.63.0/.cargo/bin:/usr/bin"
+PATH = "/opt/rust-1.63.0/.cargo/bin:/usr/bin:/bin"
 
 [limits]
 fsize = 32000000  # 32MB

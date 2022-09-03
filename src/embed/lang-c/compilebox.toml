@@ -9,7 +9,7 @@ mounts = [
 ]
 
 [env]
-PATH = "/usr/bin"
+PATH = "/usr/bin:/bin"
 
 [limits]
 fsize = 32000000  # 32MB

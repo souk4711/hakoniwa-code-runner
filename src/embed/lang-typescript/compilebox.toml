@@ -9,7 +9,7 @@ mounts = [
 ]
 
 [env]
-PATH = "/opt/nodejs-18.8.0/bin:/usr/bin"
+PATH = "/opt/nodejs-18.8.0/bin:/usr/bin:/bin"
 
 [limits]
 fsize = 32000000  # 32MB

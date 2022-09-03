@@ -10,7 +10,7 @@ mounts = [
 ]
 
 [env]
-PATH = "/opt/erlang-25.0.4/bin:/usr/bin"
+PATH = "/opt/erlang-25.0.4/bin:/usr/bin:/bin"
 
 [limits]
 fsize = 32000000  # 32MB

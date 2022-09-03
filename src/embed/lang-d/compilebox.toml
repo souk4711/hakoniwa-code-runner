@@ -11,7 +11,7 @@ mounts = [
 ]
 
 [env]
-PATH = "/opt/d-2.100.0/linux/bin64:/usr/bin"
+PATH = "/opt/d-2.100.0/linux/bin64:/usr/bin:/bin"
 
 [limits]
 fsize = 32000000  # 32MB
