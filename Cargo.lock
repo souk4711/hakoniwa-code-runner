@@ -447,6 +447,7 @@ dependencies = [
  "handlebars",
  "lazy_static",
  "prost",
+ "prost-build",
  "rust-embed",
  "serde",
  "serde_variant",
