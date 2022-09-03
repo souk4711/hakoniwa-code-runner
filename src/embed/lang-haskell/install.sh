@@ -13,3 +13,5 @@ BOOTSTRAP_HASKELL_GHC_VERSION=$VERSION \
 GHCUP_INSTALL_BASE_PREFIX=$INSTALLDIR \
   sh /tmp/get-ghcup.sh
 rm /tmp/get-ghcup.sh
+rm -rf $INSTALLDIR/.ghcup/ghc/$VERSION/share
+rm -rf $INSTALLDIR/.ghcup/share
