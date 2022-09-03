@@ -2,7 +2,7 @@
 name = "Haskell (GHC 9.4.2)"
 
 [lang.haskell.compile]
-command = ["/opt/haskell-9.4.2/.ghcup/bin/ghc", "main.hs"]
+command = ["/opt/haskell-9.4.2/.ghcup/bin/ghc", "-dynamic", "main.hs"]
 sandbox = "embed://lang-haskell/compilebox.toml"
 
 [lang.haskell.execute]
