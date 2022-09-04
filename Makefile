@@ -1,4 +1,7 @@
-.PHONY: devcontainer-slim
+.PHONY: devcontainer devcontainer-slim
+
+devcontainer:
+	docker build . -t hcr-devcontainer:latest
 
 devcontainer-slim:
 	./scripts/dockerbuild.sh all
