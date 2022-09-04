@@ -2,6 +2,7 @@
 target/
 
 # Docfiles
+examples/
 src/embed/lang-*/[Mm]ain*
 README.md
 

@@ -17,4 +17,4 @@ test: devcontainer
 	docker run --privileged --rm -it hcr-devcontainer:latest cargo test
 
 start-server: prodcontainer
-	docker run --privileged --rm -it -p 8080:8080 hcr-prodcontainer:latest hakoniwa-code-runner start
+	docker run --privileged --rm -it --stop-signal SIGINT -p 8080:8080 hcr-prodcontainer:latest hakoniwa-code-runner start
