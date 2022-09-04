@@ -46,6 +46,7 @@ syscalls = [
   "getuid",
   "ioctl",
   "lseek",
+  "lstat",
   "madvise",
   "mkdir",
   "mmap",
