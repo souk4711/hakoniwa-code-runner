@@ -9,7 +9,7 @@ use hakoniwa::{Sandbox, SandboxPolicy};
 
 #[derive(Default)]
 pub struct App {
-    config: AppConfig,
+    pub(crate) config: AppConfig,
     executor_map: HashMap<String, Executor>,
 }
 

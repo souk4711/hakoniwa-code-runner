@@ -16,6 +16,25 @@ lazy_static! {
 
 #[derive(Deserialize, Default, Debug)]
 #[serde(deny_unknown_fields)]
+pub struct ServerConfig {
+    #[serde(default = "ServerConfig::default_ip")]
+    pub(crate) ip: String,
+    #[serde(default = "ServerConfig::default_port")]
+    pub(crate) port: u16,
+}
+
+impl ServerConfig {
+    fn default_ip() -> String {
+        String::from("127.0.0.1")
+    }
+
+    fn default_port() -> u16 {
+        8080
+    }
+}
+
+#[derive(Deserialize, Default, Debug)]
+#[serde(deny_unknown_fields)]
 pub struct LanguageCommandConfig {
     pub(crate) command: Vec<String>,
     pub(crate) sandbox: String,
@@ -32,6 +51,8 @@ pub struct LanguageConfig {
 #[derive(Deserialize, Default, Debug)]
 #[serde(deny_unknown_fields)]
 pub struct AppConfig {
+    #[serde(default, rename = "server")]
+    pub(crate) server: ServerConfig,
     #[serde(rename = "lang")]
     pub(crate) languages: HashMap<String, LanguageConfig>,
 }

@@ -1,10 +1,8 @@
 mod languages;
 mod runs;
 
-use std::{
-    net::{IpAddr, Ipv4Addr, SocketAddr},
-    sync::Arc,
-};
+use anyhow::anyhow;
+use std::sync::Arc;
 use tokio::{signal, sync::oneshot};
 
 use crate::App;
@@ -27,7 +25,10 @@ impl Server {
             _ = tx.send(());
         });
 
-        let addr = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)), 8080);
+        let config = &self.app.config.server;
+        let addr = format!("{}:{}", config.ip, config.port)
+            .parse()
+            .map_err(|err| anyhow!("Error parsing `server`: {}", err))?;
         tonic::transport::Server::builder()
             .add_service(languages::service(self.clone()))
             .add_service(runs::service(self.clone()))

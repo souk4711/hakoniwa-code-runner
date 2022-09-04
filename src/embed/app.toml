@@ -1,3 +1,8 @@
+# ServerConfig
+[server]
+ip = "0.0.0.0"
+
+# LanguageConfig
 {{ render_to_string "embed://lang-c/config.toml" }}
 {{ render_to_string "embed://lang-cpp/config.toml" }}
 {{ render_to_string "embed://lang-d/config.toml" }}
