@@ -1,5 +1,10 @@
 # Cargo target dir
-target
+target/
 
-# Testfiles
+# Docfiles
 src/embed/lang-*/[Mm]ain*
+README.md
+
+# Build scripts
+scripts/
+Makefile

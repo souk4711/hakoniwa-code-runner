@@ -1,5 +1,5 @@
 # Cargo target dir
-target
+target/
 
-# Testfiles
+# Docfiles
 src/embed/lang-*/[Mm]ain*

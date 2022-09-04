@@ -1,5 +1,5 @@
 # devcontainer
-FROM hcr-devcontainer-slim:latest as devcontainer
+FROM hcr-container-slim:latest as devcontainer
 
 WORKDIR /usr/src/hcr
 
@@ -13,13 +13,14 @@ RUN cargo build --release
 COPY . .
 
 
-# prodcontainer-builder
-FROM hcr-devcontainer:latest as prodcontainer-builder
+# devcontainer-builder
+FROM hcr-devcontainer:latest as devcontainer-builder
 WORKDIR /usr/src/hcr
 RUN cargo install --path .
 
+
 # prodcontainer
-FROM hcr-devcontainer-slim:latest as prodcontainer
-COPY --from=prodcontainer-builder /usr/local/cargo/bin/hakoniwa-code-runner /usr/local/bin/hakoniwa-code-runner
+FROM hcr-container-slim:latest as prodcontainer
+COPY --from=devcontainer-builder /usr/local/cargo/bin/hakoniwa-code-runner /usr/local/bin/hakoniwa-code-runner
 EXPOSE 8080
-CMD ["hakoniwa-code-runner", "start"]
+CMD ["hakoniwa-code-runner", "--version"]

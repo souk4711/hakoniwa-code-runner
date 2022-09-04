@@ -1,22 +1,20 @@
-.PHONY: devcontainer-slim devcontainer test start-server
+.PHONY: container-slim devcontainer prodcontainer test start-server
 
 default: test
 
-devcontainer-slim:
+container-slim:
 	./scripts/dockerbuild.sh all
-	docker build -f ./src/embed/Dockerfile . -t hcr-devcontainer-slim:latest
-	docker image prune -f
+	docker build -f ./src/embed/Dockerfile . -t hcr-container-slim:latest
 
 devcontainer:
 	docker build . --target devcontainer -t hcr-devcontainer:latest
-	docker image prune -f
+
+prodcontainer: devcontainer
+	docker build . --target devcontainer-builder -t hcr-devcontainer-builder:latest
+	docker build . --target prodcontainer -t hcr-prodcontainer:latest
 
 test: devcontainer
 	docker run --privileged --rm -it hcr-devcontainer:latest cargo test
 
-prodcontainer:
-	docker build . --target prodcontainer -t hcr-prodcontainer:latest
-	docker image prune -f
-
 start-server: prodcontainer
-	docker run --privileged --rm -it -p 8080:8080 hcr-prodcontainer:latest
+	docker run --privileged --rm -it -p 8080:8080 hcr-prodcontainer:latest hakoniwa-code-runner start
