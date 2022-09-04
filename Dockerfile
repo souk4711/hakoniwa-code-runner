@@ -1,4 +1,4 @@
-FROM hcr-devcontainer-slim:latest
+FROM hcr-devcontainer-slim:latest as devcontainer
 
 WORKDIR /usr/src/hcr
 

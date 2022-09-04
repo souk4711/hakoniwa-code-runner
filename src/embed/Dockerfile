@@ -10,7 +10,7 @@ FROM hcr-rust:1.63.0       as rust-builder
 FROM hcr-scala:3.1.3       as scala-builder
 
 
-FROM rust:bullseye
+FROM rust:bullseye as devcontainer-slim
 
 RUN set -xe && \
   apt-get update && \

@@ -2,10 +2,12 @@
 
 devcontainer-slim:
 	./scripts/dockerbuild.sh all
-	set -xe; cd ./src/embed; docker build . -t hcr-devcontainer-slim:latest
+	docker build -f ./src/embed/Dockerfile . -t hcr-devcontainer-slim:latest
+	docker image prune -f
 
 devcontainer:
-	docker build . -t hcr-devcontainer:latest
+	docker build . --target devcontainer -t hcr-devcontainer:latest
+	docker image prune -f
 
 test: devcontainer
 	docker run --privileged --rm -it hcr-devcontainer:latest cargo test
