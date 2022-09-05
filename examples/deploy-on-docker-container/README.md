@@ -3,8 +3,8 @@
 ## Server
 
 ```sh
-$ docker build . -t example-deploy-on-docker-container
-$ docker run --privileged --rm -it --stop-signal SIGINT -p 8080:8080 example-deploy-on-docker-container
+$ docker build . -t hcr-example-deploy-on-docker-container
+$ docker run --privileged --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-deploy-on-docker-container
 2022-09-05T10:27:48.867769Z  INFO hcr::server: listening on 0.0.0.0:8080
 ```
 
