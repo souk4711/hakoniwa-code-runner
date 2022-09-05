@@ -3,4 +3,4 @@ name = "Ruby (3.1.2)"
 
 [lang.ruby.execute]
 command = ["/opt/ruby-3.1.2/bin/ruby", "main.rb"]
-sandbox = "embed://lang-ruby/executebox.toml"
+sandbox = ".devcontainer/lang-ruby/executebox.toml"

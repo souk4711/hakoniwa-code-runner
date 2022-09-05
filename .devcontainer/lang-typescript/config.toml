@@ -3,8 +3,8 @@ name = "Typescript (4.8.2)"
 
 [lang.typescript.compile]
 command = ["/opt/nodejs-18.8.0/bin/tsc", "main.ts", "--outFile", "main.js"]
-sandbox = "embed://lang-typescript/compilebox.toml"
+sandbox = ".devcontainer/lang-typescript/compilebox.toml"
 
 [lang.typescript.execute]
 command = ["/opt/nodejs-18.8.0/bin/node", "--max-old-space-size=256", "main.js"]
-sandbox = "embed://lang-typescript/executebox.toml"
+sandbox = ".devcontainer/lang-typescript/executebox.toml"

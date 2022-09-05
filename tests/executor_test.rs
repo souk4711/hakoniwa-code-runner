@@ -6,7 +6,7 @@ mod executor_test {
     use std::str;
 
     #[derive(RustEmbed)]
-    #[folder = "./src/embed"]
+    #[folder = "./.devcontainer"]
     pub struct Embed;
 
     lazy_static! {

@@ -3,8 +3,8 @@ name = "C (GCC 10.2.1)"
 
 [lang.c.compile]
 command = ["/usr/bin/gcc", "-std=c11", "-O2", "--static", "main.c", "-o", "main"]
-sandbox = "embed://lang-c/compilebox.toml"
+sandbox = ".devcontainer/lang-c/compilebox.toml"
 
 [lang.c.execute]
 command = ["/hako/main"]
-sandbox = "embed://lang-c/executebox.toml"
+sandbox = ".devcontainer/lang-c/executebox.toml"

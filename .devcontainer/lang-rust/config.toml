@@ -3,8 +3,8 @@ name = "Rust (1.63.0)"
 
 [lang.rust.compile]
 command = ["/opt/rust-1.63.0/.cargo/bin/rustc", "main.rs"]
-sandbox = "embed://lang-rust/compilebox.toml"
+sandbox = ".devcontainer/lang-rust/compilebox.toml"
 
 [lang.rust.execute]
 command = ["/hako/main"]
-sandbox = "embed://lang-rust/executebox.toml"
+sandbox = ".devcontainer/lang-rust/executebox.toml"

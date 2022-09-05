@@ -1,14 +1,14 @@
 use anyhow::Result;
 use clap::Args;
-use std::{fs, path::PathBuf, process, str};
+use std::{fs, path::PathBuf, process};
 
-use crate::{App, AppConfig, Embed, Server};
+use crate::{App, AppConfig, Server};
 
 #[derive(Args)]
 pub struct StartCommand {
-    /// Configuration file [default: app.toml]
+    /// Configuration file
     #[clap(short, long, value_name = "FILE")]
-    config: Option<PathBuf>,
+    config: PathBuf,
 }
 
 impl StartCommand {
@@ -21,10 +21,7 @@ impl StartCommand {
 
     fn _execute(cmd: &Self) -> Result<()> {
         // Arg: config.
-        let config_data = match &cmd.config {
-            Some(config) => fs::read_to_string(config)?,
-            None => str::from_utf8(&Embed::get("app.toml").unwrap().data)?.to_string(),
-        };
+        let config_data = fs::read_to_string(&cmd.config)?;
         let config = AppConfig::from_str(&config_data)?;
         let mut app = App::new(config);
         app.initialize()?;

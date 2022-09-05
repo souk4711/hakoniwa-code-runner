@@ -3,8 +3,8 @@ name = "Scala (3.1.3)"
 
 [lang.scala.compile]
 command = ["/opt/scala-3.1.3/bin/scalac", "main.scala"]
-sandbox = "embed://lang-scala/compilebox.toml"
+sandbox = ".devcontainer/lang-scala/compilebox.toml"
 
 [lang.scala.execute]
 command = ["/opt/scala-3.1.3/bin/scala", "-J-Xmx256m", "Main"]
-sandbox = "embed://lang-scala/executebox.toml"
+sandbox = ".devcontainer/lang-scala/executebox.toml"

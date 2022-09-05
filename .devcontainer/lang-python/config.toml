@@ -3,4 +3,4 @@ name = "Python (3.10.6)"
 
 [lang.python.execute]
 command = ["/opt/python-3.10.6/bin/python3", "main.py"]
-sandbox = "embed://lang-python/executebox.toml"
+sandbox = ".devcontainer/lang-python/executebox.toml"
