@@ -1,12 +1,4 @@
 FROM buildpack-deps:bullseye
 
-RUN set -xe && \
-  apt-get update && \
-  apt-get install -y --no-install-recommends locales && \
-  rm -rf /var/lib/apt/lists/* && \
-  echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-  locale-gen
-ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
-
 COPY install.sh /install.sh
 RUN sh /install.sh

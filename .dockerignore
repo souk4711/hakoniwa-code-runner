@@ -1,14 +1,1 @@
-# Cargo target dir
 target/
-
-# Docfiles
-src/embed/lang-*/[Mm]ain*
-examples/
-README.md
-
-# Build scripts
-.git/
-.github/
-scripts/
-Dockerfile
-Makefile

@@ -79,6 +79,8 @@ pub struct Executor {
 }
 
 impl Executor {
+    const CONTAINER_WORK_DIR: &'static str = "/hako";
+
     pub(crate) fn new(id: &str, name: &str) -> Self {
         Self {
             id: id.to_string(),
@@ -125,8 +127,8 @@ impl Executor {
         if !self.compile.is_empty() {
             let mut command = self.compilebox.command(&self.compile[0], &self.compile);
             let result = command
-                .rw_bind(&self.work_dir, "/hako")?
-                .current_dir("/hako")?
+                .rw_bind(&self.work_dir, Self::CONTAINER_WORK_DIR)?
+                .current_dir(Self::CONTAINER_WORK_DIR)?
                 .run();
             match result.exit_code {
                 Some(0) => {}
@@ -136,8 +138,8 @@ impl Executor {
 
         let mut command = self.executebox.command(&self.execute[0], &self.execute);
         let result = command
-            .rw_bind(&self.work_dir, "/hako")?
-            .current_dir("/hako")?
+            .rw_bind(&self.work_dir, Self::CONTAINER_WORK_DIR)?
+            .current_dir(Self::CONTAINER_WORK_DIR)?
             .run();
         Ok(ExecutorResult::from(result))
     }

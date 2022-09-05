@@ -1,20 +1,16 @@
-.PHONY: container-slim devcontainer prodcontainer test start-server
+.PHONY: devcontainer devcontainer-ci test start-server
 
 default: test
 
-container-slim:
-	./scripts/dockerbuild.sh all
-	docker build -f ./src/embed/Dockerfile . -t hcr-container-slim:latest
-
 devcontainer:
-	docker build . --target devcontainer -t hcr-devcontainer:latest
+	./scripts/dockerbuild.sh all
+	docker build -f ./.devcontainer/Dockerfile . -t hcr-devcontainer:latest
 
-prodcontainer: devcontainer
-	docker build . --target devcontainer-builder -t hcr-devcontainer-builder:latest
-	docker build . --target prodcontainer -t hcr-prodcontainer:latest
+devcontainer-ci:
+	docker build -f ./Dockerfile . -t hcr-devcontainer-ci:latest
 
-test: devcontainer
-	docker run --privileged --rm -it hcr-devcontainer:latest cargo test
+test: devcontainer-ci
+	docker run --privileged --rm -it -w /home/hako/hcr hcr-devcontainer-ci:latest cargo test
 
-start-server: prodcontainer
-	docker run --privileged --rm -it --stop-signal SIGINT -p 8080:8080 hcr-prodcontainer:latest hakoniwa-code-runner start
+start-server: devcontainer-ci
+	docker run --privileged --rm -it -w /home/hako/hcr -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
