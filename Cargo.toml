@@ -17,6 +17,7 @@ fastrand = "1.8.0"
 hakoniwa = "0.4.4"
 handlebars = "4.3.3"
 lazy_static = "1.4.0"
+log = "0.4.17"
 prost = "0.11.0"
 prost-build = "0.11.1"
 rust-embed = "6.4.0"
@@ -26,6 +27,8 @@ tokio = { version = "1.20.1", features = ["rt-multi-thread", "signal"] }
 toml = "0.5.9"
 tonic = "0.8.0"
 tonic-reflection = "0.5.0"
+tracing = "0.1.36"
+tracing-subscriber = { version = "0.3.15", features = ["env-filter"] }
 
 [build-dependencies]
 prost-build = "0.11.1"

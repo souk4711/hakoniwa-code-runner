@@ -4,6 +4,10 @@ mod runs;
 use anyhow::anyhow;
 use std::sync::Arc;
 use tokio::{signal, sync::oneshot};
+use tracing_subscriber::{
+    filter::{EnvFilter, LevelFilter},
+    prelude::*,
+};
 
 use crate::{pb, App};
 
@@ -19,21 +23,39 @@ impl Server {
 
     #[tokio::main]
     pub async fn start(&self) -> anyhow::Result<()> {
+        // Configuration.
+        let config = &self.app.config.server;
+
+        // gRPC Reflection service.
         let reflection_service = tonic_reflection::server::Builder::configure()
             .register_encoded_file_descriptor_set(pb::FILE_DESCRIPTOR_SET)
             .build()?;
 
-        let config = &self.app.config.server;
-        let addr = format!("{}:{}", config.ip, config.port)
-            .parse()
-            .map_err(|err| anyhow!("Error parsing `server`: {}", err))?;
+        // Tracing feature.
+        let fmt_layer = tracing_subscriber::fmt::layer();
+        let mut env_filter_layer = EnvFilter::builder()
+            .with_default_directive(LevelFilter::INFO.into())
+            .from_env_lossy();
+        if let Some(LevelFilter::INFO) = env_filter_layer.max_level_hint() {
+            env_filter_layer = env_filter_layer.add_directive("hakoniwa=off".parse()?);
+        }
+        tracing_subscriber::registry()
+            .with(fmt_layer)
+            .with(env_filter_layer)
+            .init();
 
+        // Graceful shutdown feature.
         let (tx, rx) = oneshot::channel::<()>();
         _ = tokio::spawn(async move {
             _ = signal::ctrl_c().await;
             _ = tx.send(());
         });
 
+        // Start.
+        let addr = format!("{}:{}", config.ip, config.port)
+            .parse()
+            .map_err(|err| anyhow!("Error parsing `server`: {}", err))?;
+        tracing::info!(target: "hcr::server", "Listening on {}", addr);
         tonic::transport::Server::builder()
             .add_service(reflection_service)
             .add_service(languages::service(self.clone()))
