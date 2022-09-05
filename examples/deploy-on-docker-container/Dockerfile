@@ -1,0 +1,26 @@
+FROM rust:bullseye
+
+RUN set -xe && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends locales && \
+  rm -rf /var/lib/apt/lists/* && \
+  echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+  locale-gen
+ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
+
+RUN set -xe && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends libseccomp-dev && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN set -xe && \
+  cargo install hakoniwa-code-runner
+
+RUN groupadd --gid 1000 hako \
+  && useradd --uid 1000 --gid hako --shell /bin/bash --create-home hako
+
+WORKDIR /opt/hcr
+COPY . .
+USER 1000:1000
+EXPOSE 8080
+CMD ["hakoniwa-code-runner", "start"]

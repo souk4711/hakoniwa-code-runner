@@ -1,0 +1,14 @@
+[server]
+ip = "0.0.0.0"
+port = 8080
+
+[lang.c]
+name = "C (GCC)"
+
+[lang.c.compile]
+command = ["/usr/bin/gcc", "--static", "main.c", "-o", "main"]
+sandbox = "/opt/hcr/lang-c-compilebox.toml"
+
+[lang.c.execute]
+command = ["/hako/main"]
+sandbox = "/opt/hcr/lang-c-executebox.toml"
