@@ -22,5 +22,6 @@ RUN cargo install --path .
 # prodcontainer
 FROM hcr-container-slim:latest as prodcontainer
 COPY --from=devcontainer-builder /usr/local/cargo/bin/hakoniwa-code-runner /usr/local/bin/hakoniwa-code-runner
+USER 1000:1000
 EXPOSE 8080
 CMD ["hakoniwa-code-runner", "--version"]
