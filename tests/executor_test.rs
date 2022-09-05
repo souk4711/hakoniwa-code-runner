@@ -91,7 +91,6 @@ void main() {
     }
 
     #[test]
-    #[ignore]
     fn test_run_hello_world_example_lang_erlang() {
         test_run_hello_world_example(
             "erlang",
@@ -102,7 +101,7 @@ void main() {
 -export([start/0]).
 
 start() ->
-    io:fwrite("Hello, World\n").
+    io:fwrite("Hello, World!\n").
             "#,
             )],
         );

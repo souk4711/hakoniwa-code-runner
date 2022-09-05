@@ -6,7 +6,7 @@ ip = "0.0.0.0"
 {{ render_to_string ".devcontainer/lang-c/config.toml" }}
 {{ render_to_string ".devcontainer/lang-cpp/config.toml" }}
 {{ render_to_string ".devcontainer/lang-d/config.toml" }}
-{{! render_to_string ".devcontainer/lang-erlang/config.toml" }}
+{{ render_to_string ".devcontainer/lang-erlang/config.toml" }}
 {{ render_to_string ".devcontainer/lang-go/config.toml" }}
 {{ render_to_string ".devcontainer/lang-haskell/config.toml" }}
 {{ render_to_string ".devcontainer/lang-java/config.toml" }}
