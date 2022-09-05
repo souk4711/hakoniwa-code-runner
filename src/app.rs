@@ -4,7 +4,7 @@ use std::{
     str,
 };
 
-use crate::{contrib, AppConfig, Executor};
+use crate::{AppConfig, Executor};
 use hakoniwa::{Sandbox, SandboxPolicy};
 
 #[derive(Default)]
@@ -50,7 +50,7 @@ impl App {
     }
 
     fn build_sandbox(path: &str) -> Result<Sandbox> {
-        let sandbox_policy_data = contrib::fs::read_to_string(path)?;
+        let sandbox_policy_data = std::fs::read_to_string(path)?;
         let sandbox_policy = SandboxPolicy::from_str(&sandbox_policy_data)?;
         let mut sandbox = Sandbox::new();
         sandbox.with_policy(sandbox_policy);
