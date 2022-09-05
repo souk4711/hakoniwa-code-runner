@@ -2,8 +2,8 @@
 target/
 
 # Docfiles
-examples/
 src/embed/lang-*/[Mm]ain*
+examples/
 README.md
 
 # Build scripts
