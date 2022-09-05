@@ -454,6 +454,8 @@ dependencies = [
  "fastrand",
  "hakoniwa",
  "handlebars",
+ "http",
+ "hyper",
  "lazy_static",
  "log",
  "prost",
@@ -466,6 +468,7 @@ dependencies = [
  "tonic",
  "tonic-build",
  "tonic-reflection",
+ "tower-http",
  "tracing",
  "tracing-subscriber",
 ]
@@ -1522,6 +1525,7 @@ dependencies = [
  "tower",
  "tower-layer",
  "tower-service",
+ "tracing",
 ]
 
 [[package]]

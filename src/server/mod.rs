@@ -2,8 +2,15 @@ mod languages;
 mod runs;
 
 use anyhow::anyhow;
+use http::Request;
+use hyper::Body;
 use std::sync::Arc;
 use tokio::{signal, sync::oneshot};
+use tower_http::{
+    trace::{DefaultOnResponse, TraceLayer},
+    LatencyUnit,
+};
+use tracing::{Level, Span};
 use tracing_subscriber::{
     filter::{EnvFilter, LevelFilter},
     prelude::*,
@@ -55,8 +62,19 @@ impl Server {
         let addr = format!("{}:{}", config.ip, config.port)
             .parse()
             .map_err(|err| anyhow!("Error parsing `server`: {}", err))?;
-        tracing::info!(target: "hcr::server", "Listening on {}", addr);
+        tracing::info!(target: "hcr::server", "listening on {}", addr);
         tonic::transport::Server::builder()
+            .layer(
+                TraceLayer::new_for_grpc()
+                    .on_request(|request: &Request<Body>, _span: &Span| {
+                        tracing::info!(target: "tower_http::trace::on_request", "started {} {}", request.method(), request.uri().path())
+                    })
+                    .on_response(
+                        DefaultOnResponse::new()
+                            .level(Level::INFO)
+                            .latency_unit(LatencyUnit::Micros),
+                    ),
+            )
             .add_service(reflection_service)
             .add_service(languages::service(self.clone()))
             .add_service(runs::service(self.clone()))
