@@ -11,11 +11,8 @@ mounts = [
 JAVA_HOME = "/opt/openjdk-18"
 
 [limits]
+{{ fs_read_to_string ".devcontainer/shared/executebox.limits.without_as.toml" }}
 # as = 256000000  # use -Xmx256m
-core = 0        # no core file
-cpu = 2         # 2 seconds
-fsize = 0       # no output file
-walltime = 5    # 5 seconds
 
 [seccomp]
 syscalls = [

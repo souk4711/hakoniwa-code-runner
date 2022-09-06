@@ -1,19 +1,15 @@
 mounts = [
-  { source = "/lib"          , target = "/lib"           },
-  { source = "/lib64"        , target = "/lib64"         },
-  { source = "/usr/lib"      , target = "/usr/lib"       },
-  { source = "/usr/lib64"    , target = "/usr/lib64"     },
+  { source = "/lib"      , target = "/lib"       },
+  { source = "/lib64"    , target = "/lib64"     },
+  { source = "/usr/lib"  , target = "/usr/lib"   },
+  { source = "/usr/lib64", target = "/usr/lib64" },
 ]
 
 [env]
 {{ fs_read_to_string ".devcontainer/shared/executebox.env.toml" }}
 
 [limits]
-as = 256000000  # 256MB
-core = 0        # no core file
-cpu = 2         # 2 seconds
-fsize = 0       # no output file
-walltime = 5    # 5 seconds
+{{ fs_read_to_string ".devcontainer/shared/executebox.limits.toml" }}
 
 [seccomp]
 syscalls = [
