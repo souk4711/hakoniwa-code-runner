@@ -1,11 +1,10 @@
-# Deploy on docker container
+# Run server on host
 
 ## Server
 
 ```sh
-$ docker build . -t hcr-example-deploy-on-docker-container
-$ docker run --privileged --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-deploy-on-docker-container
-2022-09-05T10:27:48.867769Z  INFO hcr::server: listening on 0.0.0.0:8080
+$ hakoniwa-code-runner start -c app.toml
+2022-09-05T06:51:32.207731Z  INFO hcr::server: listening on 127.0.0.1:8080
 ```
 
 ## Client
@@ -26,16 +25,16 @@ $ grpcurl -d '{ "lang": "c", "files": [{ "name": "main.c", "content": "#include 
   "status": "OK",
   "stdout": "Hello, World!",
   "exitCode": 0,
-  "startTime": "2022-09-05T10:28:14.595426234Z",
+  "startTime": "2022-09-05T06:52:05.728329446Z",
   "realTime": {
-    "nanos": 5233800
+    "nanos": 448983
   },
   "systemTime": {
-
+    "nanos": 461000
   },
   "userTime": {
-    "nanos": 1197000
+
   },
-  "maxRss": "3852"
+  "maxRss": "3440"
 }
 ```
