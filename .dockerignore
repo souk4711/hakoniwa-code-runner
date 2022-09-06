@@ -1,1 +1,8 @@
 target/
+
+.git/
+examples/
+scripts/
+Dockerfile
+Makefile
+README.md
