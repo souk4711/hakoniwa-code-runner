@@ -10,7 +10,7 @@ devcontainer-ci:
 	docker build -f ./Dockerfile . -t hcr-devcontainer-ci:latest
 
 test: devcontainer-ci
-	docker run --privileged --rm -it -w /home/hako/hcr hcr-devcontainer-ci:latest cargo test
+	docker run --privileged --rm -it hcr-devcontainer-ci:latest cargo test
 
 start-server: devcontainer-ci
-	docker run --privileged --rm -it -w /home/hako/hcr -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
+	docker run --privileged --rm -it -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
