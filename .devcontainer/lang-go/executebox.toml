@@ -18,6 +18,7 @@ syscalls = [
   "fcntl",
   "fstat",
   "futex",
+  "getpid",
   "getrlimit",
   "gettid",
   "lstat",
