@@ -13,31 +13,5 @@ mounts = [
 
 [seccomp]
 syscalls = [
-  "access",
-  "arch_prctl",
-  "brk",
-  "clock_getres",
-  "close",
-  "execve",
-  "exit_group",
-  "fstat",
-  "getrandom",
-  "lstat",
-  "mmap",
-  "mprotect",
-  "newfstatat",
-  "openat",
-  "pread64",
-  "prlimit64",
-  "read",
-  "rseq",
-  "rt_sigaction",
-  "rt_sigprocmask",
-  "rt_sigreturn",
-  "sched_getaffinity",
-  "sched_yield",
-  "set_robust_list",
-  "set_tid_address",
-  "stat",
-  "write",
+{{ fs_read_to_string ".devcontainer/shared/executebox.seccomp.syscalls.toml" }}
 ]

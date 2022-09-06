@@ -8,31 +8,8 @@ GOMEMLIMIT = "256000000"
 
 [seccomp]
 syscalls = [
-  "arch_prctl",
-  "clone",
-  "close",
-  "execve",
-  "exit_group",
-  "fcntl",
-  "fstat",
-  "futex",
-  "getpid",
-  "getrlimit",
-  "gettid",
-  "lstat",
-  "madvise",
-  "mmap",
-  "nanosleep",
-  "openat",
-  "read",
-  "rt_sigaction",
-  "rt_sigprocmask",
-  "rt_sigreturn",
-  "sched_getaffinity",
-  "sched_yield",
-  "setrlimit",
-  "sigaltstack",
-  "stat",
-  "tgkill",
-  "write",
+{{ fs_read_to_string ".devcontainer/shared/executebox.seccomp.syscalls.toml" }}
+
+"clone",
+"setrlimit",
 ]

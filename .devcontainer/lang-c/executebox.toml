@@ -6,25 +6,5 @@
 
 [seccomp]
 syscalls = [
-  "arch_prctl",
-  "brk",
-  "execve",
-  "exit_group",
-  "fstat",
-  "getrandom",
-  "ioctl",
-  "lstat",
-  "mprotect",
-  "newfstatat",
-  "prlimit64",
-  "readlink",
-  "rseq",
-  "rt_sigaction",
-  "rt_sigprocmask",
-  "rt_sigreturn",
-  "set_robust_list",
-  "set_tid_address",
-  "stat",
-  "uname",
-  "write",
+{{ fs_read_to_string ".devcontainer/shared/executebox.seccomp.syscalls.toml" }}
 ]
