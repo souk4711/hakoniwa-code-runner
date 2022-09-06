@@ -19,7 +19,7 @@ $ hakoniwa-code-runner start -c app.toml
 2022-09-05T06:51:32.207731Z  INFO hcr::server: listening on 127.0.0.1:8080
 ```
 
-More examples can be found in [./examples/]. E.g.
+More examples can be found in [examples](./examples/). E.g.
 
 * [Run server on host](./examples/run-server-on-host/)
 * [Run server inside docker container](./examples/run-server-inside-docker-container/)
