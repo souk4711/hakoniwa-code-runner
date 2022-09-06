@@ -3,7 +3,7 @@
 GOMEMLIMIT = "256000000"
 
 [limits]
-{{ fs_read_to_string ".devcontainer/shared/executebox.limits.without_as.toml" }}
+{{ fs_read_to_string ".devcontainer/shared/executebox.limits.exclude_as.toml" }}
 # as = 256000000  # use GOMEMLIMIT
 
 [seccomp]

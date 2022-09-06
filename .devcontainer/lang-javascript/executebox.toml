@@ -10,7 +10,7 @@ mounts = [
 {{ fs_read_to_string ".devcontainer/shared/executebox.env.toml" }}
 
 [limits]
-{{ fs_read_to_string ".devcontainer/shared/executebox.limits.without_as.toml" }}
+{{ fs_read_to_string ".devcontainer/shared/executebox.limits.exclude_as.toml" }}
 # as = 256000000  # use --max-old-space-size=256
 
 [seccomp]
