@@ -7,10 +7,7 @@ mounts = [
 ]
 
 [env]
-PATH     = "/opt/python-3.10.6/bin"
-LANG     = {{ os_env "LANG"     }}
-LANGUAGE = {{ os_env "LANGUAGE" }}
-LC_ALL   = {{ os_env "LC_ALL"   }}
+{{ fs_read_to_string ".devcontainer/shared/executebox.env.toml" }}
 
 [limits]
 as = 256000000  # 256MB

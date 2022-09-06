@@ -7,9 +7,7 @@ mounts = [
 ]
 
 [env]
-LANG     = {{ os_env "LANG"     }}
-LANGUAGE = {{ os_env "LANGUAGE" }}
-LC_ALL   = {{ os_env "LC_ALL"   }}
+{{ fs_read_to_string ".devcontainer/shared/executebox.env.toml" }}
 
 [limits]
 as = 256000000  # 256MB

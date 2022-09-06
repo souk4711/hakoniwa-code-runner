@@ -7,11 +7,8 @@ mounts = [
 ]
 
 [env]
+{{ fs_read_to_string ".devcontainer/shared/executebox.env.toml" }}
 JAVA_HOME = "/opt/openjdk-18"
-PATH      = "/opt/openjdk-18/bin"
-LANG      = {{ os_env "LANG"     }}
-LANGUAGE  = {{ os_env "LANGUAGE" }}
-LC_ALL    = {{ os_env "LC_ALL"   }}
 
 [limits]
 # as = 256000000  # use -Xmx256m
