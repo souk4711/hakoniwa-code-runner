@@ -43,6 +43,7 @@
 "epoll_ctl",
 "epoll_wait",
 "poll",
+"ppoll",
 
 # AllowTCGETS
 "ioctl",
