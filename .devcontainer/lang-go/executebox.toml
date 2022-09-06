@@ -38,5 +38,6 @@ syscalls = [
   "setrlimit",
   "sigaltstack",
   "stat",
+  "tgkill",
   "write",
 ]
