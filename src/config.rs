@@ -4,12 +4,12 @@ use lazy_static::lazy_static;
 use serde::Deserialize;
 use std::collections::HashMap;
 
-use crate::contrib::handlebars::render_to_string_helper;
+use crate::contrib::handlebars::fs_read_to_string_helper;
 
 lazy_static! {
     static ref SANDBOX_POLICY_HANDLEBARS: Handlebars<'static> = {
         let mut handlebars = Handlebars::new();
-        handlebars.register_helper("render_to_string", Box::new(render_to_string_helper));
+        handlebars.register_helper("fs_read_to_string", Box::new(fs_read_to_string_helper));
         handlebars
     };
 }

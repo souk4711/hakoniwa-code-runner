@@ -2,7 +2,7 @@ use handlebars::{
     Context, Handlebars, Helper, HelperResult, JsonRender, Output, RenderContext, RenderError,
 };
 
-pub fn render_to_string_helper(
+pub fn fs_read_to_string_helper(
     h: &Helper,
     _: &Handlebars,
     _c: &Context,

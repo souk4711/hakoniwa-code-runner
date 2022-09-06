@@ -3,16 +3,16 @@
 ip = "0.0.0.0"
 
 # LanguageConfig
-{{ render_to_string ".devcontainer/lang-c/config.toml" }}
-{{ render_to_string ".devcontainer/lang-cpp/config.toml" }}
-{{ render_to_string ".devcontainer/lang-d/config.toml" }}
-{{ render_to_string ".devcontainer/lang-erlang/config.toml" }}
-{{ render_to_string ".devcontainer/lang-go/config.toml" }}
-{{ render_to_string ".devcontainer/lang-haskell/config.toml" }}
-{{ render_to_string ".devcontainer/lang-java/config.toml" }}
-{{ render_to_string ".devcontainer/lang-javascript/config.toml" }}
-{{ render_to_string ".devcontainer/lang-python/config.toml" }}
-{{ render_to_string ".devcontainer/lang-ruby/config.toml" }}
-{{ render_to_string ".devcontainer/lang-rust/config.toml" }}
-{{ render_to_string ".devcontainer/lang-scala/config.toml" }}
-{{ render_to_string ".devcontainer/lang-typescript/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-c/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-cpp/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-d/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-erlang/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-go/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-haskell/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-java/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-javascript/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-python/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-ruby/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-rust/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-scala/config.toml" }}
+{{ fs_read_to_string ".devcontainer/lang-typescript/config.toml" }}
