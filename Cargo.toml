@@ -14,7 +14,7 @@ anyhow = "1.0.62"
 chrono = "0.4.22"
 clap = { version = "3.2.13", features = ["derive"] }
 fastrand = "1.8.0"
-hakoniwa = "0.4.4"
+hakoniwa = "0.4.6"
 handlebars = "4.3.3"
 http = "0.2.8"
 hyper = "0.14.20"

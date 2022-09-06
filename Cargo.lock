@@ -423,9 +423,9 @@ dependencies = [
 
 [[package]]
 name = "hakoniwa"
-version = "0.4.4"
+version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e6af04ce3992f22accbea6c37aebf1fe2f09787e2000148d5b6732bcca7720c"
+checksum = "9d89d47db507f8f14a5985347651b529ef677d8415b54534a98ced261123fba6"
 dependencies = [
  "bincode",
  "chrono",
