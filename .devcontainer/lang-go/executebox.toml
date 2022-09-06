@@ -1,5 +1,8 @@
 [env]
 GOMEMLIMIT = "256000000"
+LANG       = {{ os_env "LANG"     }}
+LANGUAGE   = {{ os_env "LANGUAGE" }}
+LC_ALL     = {{ os_env "LC_ALL"   }}
 
 [limits]
 # as = 256000000  # use GOMEMLIMIT

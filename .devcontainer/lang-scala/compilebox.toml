@@ -13,8 +13,11 @@ mounts = [
 
 [env]
 SCALA_HOME = "/opt/scala-3.1.3"
-JAVA_HOME = "/opt/openjdk-18"
-PATH = "/opt/scala-3.1.3/bin:/opt/openjdk-18/bin:/usr/bin:/bin"
+JAVA_HOME  = "/opt/openjdk-18"
+PATH       = "/opt/scala-3.1.3/bin:/opt/openjdk-18/bin:/usr/bin:/bin"
+LANG       = {{ os_env "LANG"     }}
+LANGUAGE   = {{ os_env "LANGUAGE" }}
+LC_ALL     = {{ os_env "LC_ALL"   }}
 
 [limits]
 fsize = 32000000  # 32MB

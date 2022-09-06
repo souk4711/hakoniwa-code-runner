@@ -1,3 +1,8 @@
+[env]
+LANG     = {{ os_env "LANG"     }}
+LANGUAGE = {{ os_env "LANGUAGE" }}
+LC_ALL   = {{ os_env "LC_ALL"   }}
+
 [limits]
 as = 256000000  # 256MB
 core = 0        # no core file

@@ -15,8 +15,11 @@ contents = ""
 
 [env]
 RUSTUP_HOME = "/opt/rust-1.63.0/.rustup"
-CARGO_HOME = "/opt/rust-1.63.0/.cargo"
-PATH = "/opt/rust-1.63.0/.cargo/bin:/usr/bin:/bin"
+CARGO_HOME  = "/opt/rust-1.63.0/.cargo"
+PATH        = "/opt/rust-1.63.0/.cargo/bin:/usr/bin:/bin"
+LANG        = {{ os_env "LANG"     }}
+LANGUAGE    = {{ os_env "LANGUAGE" }}
+LC_ALL      = {{ os_env "LC_ALL"   }}
 
 [limits]
 fsize = 32000000  # 32MB

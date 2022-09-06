@@ -7,7 +7,7 @@ mounts = [
 ]
 
 [env]
-PATH = "/opt/ruby-3.1.2/bin"
+PATH     = "/opt/ruby-3.1.2/bin"
 LANG     = {{ os_env "LANG"     }}
 LANGUAGE = {{ os_env "LANGUAGE" }}
 LC_ALL   = {{ os_env "LC_ALL"   }}

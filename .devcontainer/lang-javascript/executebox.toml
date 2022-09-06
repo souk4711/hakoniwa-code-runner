@@ -7,7 +7,10 @@ mounts = [
 ]
 
 [env]
-PATH = "/opt/nodejs-18.8.0/bin"
+PATH     = "/opt/nodejs-18.8.0/bin"
+LANG     = {{ os_env "LANG"     }}
+LANGUAGE = {{ os_env "LANGUAGE" }}
+LC_ALL   = {{ os_env "LC_ALL"   }}
 
 [limits]
 # as = 256000000  # use --max-old-space-size=256

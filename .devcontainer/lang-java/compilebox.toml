@@ -8,7 +8,10 @@ mounts = [
 
 [env]
 JAVA_HOME = "/opt/openjdk-18"
-PATH = "/opt/openjdk-18/bin"
+PATH      = "/opt/openjdk-18/bin"
+LANG      = {{ os_env "LANG"     }}
+LANGUAGE  = {{ os_env "LANGUAGE" }}
+LC_ALL    = {{ os_env "LC_ALL"   }}
 
 [limits]
 fsize = 32000000  # 32MB

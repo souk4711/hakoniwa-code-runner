@@ -12,8 +12,11 @@ target = "/tmp/.keep"
 contents = ""
 
 [env]
-GOCACHE = "/tmp"
-PATH = "/opt/go-1.19/bin"
+GOCACHE  = "/tmp"
+PATH     = "/opt/go-1.19/bin"
+LANG     = {{ os_env "LANG"     }}
+LANGUAGE = {{ os_env "LANGUAGE" }}
+LC_ALL   = {{ os_env "LC_ALL"   }}
 
 [limits]
 fsize = 32000000  # 32MB

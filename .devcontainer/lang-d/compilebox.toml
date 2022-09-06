@@ -11,7 +11,10 @@ mounts = [
 ]
 
 [env]
-PATH = "/opt/d-2.100.0/linux/bin64:/usr/bin:/bin"
+PATH     = "/opt/d-2.100.0/linux/bin64:/usr/bin:/bin"
+LANG     = {{ os_env "LANG"     }}
+LANGUAGE = {{ os_env "LANGUAGE" }}
+LC_ALL   = {{ os_env "LC_ALL"   }}
 
 [limits]
 fsize = 32000000  # 32MB
