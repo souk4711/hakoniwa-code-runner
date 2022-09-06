@@ -3,7 +3,7 @@ name = "Golang (1.19)"
 
 [lang.go.compile]
 command = ["/opt/go-1.19/bin/go", "build", "main.go"]
-sandbox = ".devcontainer/lang-go/compilebox.toml"
+sandbox = ".devcontainer/shared/compilebox.toml"
 
 [lang.go.execute]
 command = ["/hako/main"]

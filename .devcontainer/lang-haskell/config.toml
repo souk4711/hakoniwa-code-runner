@@ -3,7 +3,7 @@ name = "Haskell (GHC 9.4.2)"
 
 [lang.haskell.compile]
 command = ["/opt/haskell-9.4.2/.ghcup/bin/ghc", "-dynamic", "main.hs"]
-sandbox = ".devcontainer/lang-haskell/compilebox.toml"
+sandbox = ".devcontainer/shared/compilebox.toml"
 
 [lang.haskell.execute]
 command = ["/hako/main"]

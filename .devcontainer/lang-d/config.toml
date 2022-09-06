@@ -3,7 +3,7 @@ name = "D (2.100.0)"
 
 [lang.d.compile]
 command = ["/opt/d-2.100.0/linux/bin64/dmd", "main.d"]
-sandbox = ".devcontainer/lang-d/compilebox.toml"
+sandbox = ".devcontainer/shared/compilebox.toml"
 
 [lang.d.execute]
 command = ["/hako/main"]

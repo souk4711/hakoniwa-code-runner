@@ -3,7 +3,7 @@ name = "Erlang (25.0.4)"
 
 [lang.erlang.compile]
 command = ["/opt/erlang-25.0.4/bin/erlc", "main.erl"]
-sandbox = ".devcontainer/lang-erlang/compilebox.toml"
+sandbox = ".devcontainer/shared/compilebox.toml"
 
 [lang.erlang.execute]
 command = ["/opt/erlang-25.0.4/bin/erl", "+MMscs256", "-noshell", "-s", "main", "start", "-s", "init", "stop"]

@@ -3,7 +3,7 @@ name = "Java (OpenJDK 18)"
 
 [lang.java.compile]
 command = ["/opt/openjdk-18/bin/javac", "main.java"]
-sandbox = ".devcontainer/lang-java/compilebox.toml"
+sandbox = ".devcontainer/shared/compilebox.toml"
 
 [lang.java.execute]
 command = ["/opt/openjdk-18/bin/java", "-Xmx256m", "Main"]

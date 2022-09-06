@@ -3,7 +3,7 @@ name = "C++ (GCC 10.2.1)"
 
 [lang.cpp.compile]
 command = ["/usr/bin/g++", "-std=c++14", "-O2", "--static", "main.cpp", "-o", "main"]
-sandbox = ".devcontainer/lang-cpp/compilebox.toml"
+sandbox = ".devcontainer/shared/compilebox.toml"
 
 [lang.cpp.execute]
 command = ["/hako/main"]
