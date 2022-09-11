@@ -35,6 +35,8 @@ pub struct ExecutorResult {
 }
 
 impl ExecutorResult {
+    const MAX_CHARS_COUNT: usize = 4096;
+
     fn complie_error(r: hakoniwa::ExecutorResult) -> Self {
         let mut r = Self::from(r);
         r.status = String::from("CE");
@@ -61,8 +63,8 @@ impl From<hakoniwa::ExecutorResult> for ExecutorResult {
             system_time: r.system_time,
             user_time: r.user_time,
             max_rss: r.max_rss,
-            stdout: String::from_utf8_lossy(&r.stdout).to_string(),
-            stderr: String::from_utf8_lossy(&r.stderr).to_string(),
+            stdout: contrib::str::truncate(&r.stdout, Self::MAX_CHARS_COUNT),
+            stderr: contrib::str::truncate(&r.stderr, Self::MAX_CHARS_COUNT),
         }
     }
 }
