@@ -66,6 +66,22 @@ Run Go code:
 
 ```sh
 $ grpcurl -d '{ "lang": "go", "files": [{ "name": "main.go", "content": "package main\nimport \"fmt\"\nfunc main() { fmt.Println(\"Hello, World!\") }" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
+{
+  "status": "OK",
+  "stdout": "Hello, World!\n",
+  "exitCode": 0,
+  "startTime": "2023-08-28T12:56:35.841592951Z",
+  "realTime": {
+    "nanos": 1886227
+  },
+  "systemTime": {
+
+  },
+  "userTime": {
+    "nanos": 1784000
+  },
+  "maxRss": "3640"
+}
 ```
 
 Run Python code:
