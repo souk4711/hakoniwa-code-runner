@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="openjdk-18"
-TAGNAME="hcr-java:$VERSION"
+TAGNAME="hcr-devcontainer-lang-java:$VERSION"
 
 set -xe
 

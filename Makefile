@@ -1,16 +1,16 @@
-.PHONY: devcontainer devcontainer-ci test start-server
+.PHONY: devcontainer-lang devcontainer test start-server
 
 default: test
 
-devcontainer:
+devcontainer-lang:
 	./scripts/dockerbuild.sh all
-	docker build -f ./.devcontainer/Dockerfile . -t hcr-devcontainer:latest
+	docker build -f ./.devcontainer/Dockerfile . -t hcr-devcontainer-lang:latest
 
-devcontainer-ci:
-	docker build -f ./Dockerfile . -t hcr-devcontainer-ci:latest
+devcontainer:
+	docker build -f ./Dockerfile . -t hcr-devcontainer:latest
 
-test: devcontainer-ci
-	docker run --privileged --group-add keep-groups --rm -it hcr-devcontainer-ci:latest cargo test
+test: devcontainer
+	docker run --privileged --group-add keep-groups --rm -it hcr-devcontainer:latest cargo test
 
-start-server: devcontainer-ci
-	docker run --privileged --group-add keep-groups --rm -it -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
+start-server: devcontainer
+	docker run --privileged --group-add keep-groups --rm -it -p 8080:8080 --stop-signal SIGINT hcr-devcontainer:latest cargo run start -c ./.devcontainer/app.toml

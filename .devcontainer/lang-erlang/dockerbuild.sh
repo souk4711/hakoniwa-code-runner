@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="25.0.4"
-TAGNAME="hcr-erlang:$VERSION"
+TAGNAME="hcr-devcontainer-lang-erlang:$VERSION"
 
 set -xe
 

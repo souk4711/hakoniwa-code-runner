@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="1.19"
-TAGNAME="hcr-go:$VERSION"
+TAGNAME="hcr-devcontainer-lang-go:$VERSION"
 
 set -xe
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # VERSION=""
-TAGNAME="hcr-nodejs:18.8.0"
+TAGNAME="hcr-devcontainer-lang-nodejs:18.8.0"
 
 set -xe
 

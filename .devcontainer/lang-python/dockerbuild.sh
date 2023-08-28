@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="3.10.6"
-TAGNAME="hcr-python:$VERSION"
+TAGNAME="hcr-devcontainer-lang-python:$VERSION"
 
 set -xe
 

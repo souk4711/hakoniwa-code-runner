@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="3.1.2"
-TAGNAME="hcr-ruby:$VERSION"
+TAGNAME="hcr-devcontainer-lang-ruby:$VERSION"
 
 set -xe
 

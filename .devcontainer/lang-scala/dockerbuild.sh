@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="3.1.3"
-TAGNAME="hcr-scala:$VERSION"
+TAGNAME="hcr-devcontainer-lang-scala:$VERSION"
 
 set -xe
 

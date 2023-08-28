@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="2.100.0"
-TAGNAME="hcr-d:$VERSION"
+TAGNAME="hcr-devcontainer-lang-d:$VERSION"
 
 set -xe
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="1.63.0"
-TAGNAME="hcr-rust:$VERSION"
+TAGNAME="hcr-devcontainer-lang-rust:$VERSION"
 
 set -xe
 
