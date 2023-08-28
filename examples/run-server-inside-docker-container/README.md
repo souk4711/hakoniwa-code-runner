@@ -5,13 +5,13 @@
 Build docker image:
 
 ```sh
-$ docker build . -t hcr-example-single-server
+$ docker build . -t hcr-example-single
 ```
 
 Run server:
 
 ```sh
-$ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-single-server
+$ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-single
 2022-09-05T10:27:48.867769Z  INFO hcr::server: listening on 0.0.0.0:8080
 ```
 

@@ -6,13 +6,13 @@ Build docker image:
 
 ```sh
 $ ./scripts/dockerbuild.sh all
-$ docker build . -t hcr-example-multi-server
+$ docker build . -t hcr-example-multi
 ```
 
 Run server:
 
 ```sh
-$ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-multi-server
+$ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-multi
 2023-08-28T10:05:49.857389Z  INFO hcr::server: listening on 0.0.0.0:8080
 ```
 
