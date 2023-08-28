@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION="1.19"
-TAGNAME="hcr-example-multi-go:$VERSION"
+TAGNAME="hcr-example-multi-lang-go:$VERSION"
 
 set -xe
 

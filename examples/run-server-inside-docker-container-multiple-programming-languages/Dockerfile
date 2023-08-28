@@ -1,8 +1,9 @@
-FROM hcr-example-multi-go:1.19           as go-builder
-FROM hcr-example-multi-python:3.10.6     as python-builder
-
-
+FROM hcr-example-multi-lang-go:1.19       as go-builder
+FROM hcr-example-multi-lang-python:3.10.6 as python-builder
 FROM rust:bullseye
+
+COPY --from=go-builder      /opt/go-1.19/       /opt/go-1.19/
+COPY --from=python-builder  /opt/python-3.10.6/ /opt/python-3.10.6/
 
 RUN set -xe && \
   apt-get update && \
@@ -20,11 +21,6 @@ RUN set -xe && \
 
 RUN groupadd --gid 1000 hako \
   && useradd --uid 1000 --gid hako --shell /bin/bash --create-home hako
-
-
-COPY --from=go-builder      /opt/go-1.19/       /opt/go-1.19/
-COPY --from=python-builder  /opt/python-3.10.6/ /opt/python-3.10.6/
-
 
 RUN set -xe && \
   cargo install hakoniwa-code-runner

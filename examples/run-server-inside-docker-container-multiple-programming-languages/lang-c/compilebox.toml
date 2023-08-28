@@ -1,19 +1,18 @@
 mounts = [
-  { source = "/bin"        , target = "/bin"         },
-  { source = "/lib"        , target = "/lib"         },
-  { source = "/lib64"      , target = "/lib64"       },
-  { source = "/usr/bin"    , target = "/usr/bin"     },
-  { source = "/usr/lib"    , target = "/usr/lib"     },
-  { source = "/usr/lib64"  , target = "/usr/lib64"   },
-  { source = "/usr/include", target = "/usr/include" },
+  { source = "/dev/null"          , target = "/dev/null"            , rw = true },
+  { source = "/bin"               , target = "/bin"                },
+  { source = "/lib"               , target = "/lib"                },
+  { source = "/lib64"             , target = "/lib64"              },
+  { source = "/usr/bin"           , target = "/usr/bin"            },
+  { source = "/usr/lib"           , target = "/usr/lib"            },
+  { source = "/usr/lib64"         , target = "/usr/lib64"          },
+  { source = "/usr/include"       , target = "/usr/include"        },
+  { source = "/usr/share/terminfo", target = "/usr/share/terminfo" },
+  { source = "/etc/alternatives"  , target = "/etc/alternatives"   },
+  { source = "/opt"               , target = "/opt"                },
 ]
 
-[env]
-PATH     = "/usr/bin:/bin"
-LANG     = {{ os_env "LANG"     }}
-LANGUAGE = {{ os_env "LANGUAGE" }}
-LC_ALL   = {{ os_env "LC_ALL"   }}
-
 [limits]
+core = 0          # no core file
 fsize = 32000000  # 32MB
 walltime = 5      # 5 seconds

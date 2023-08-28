@@ -1,0 +1,8 @@
+# ServerConfig
+[server]
+ip = "0.0.0.0"
+
+# LanguageConfig
+{{ fs_read_to_string "lang-c/config.toml" }}
+{{ fs_read_to_string "lang-go/config.toml" }}
+{{ fs_read_to_string "lang-python/config.toml" }}
