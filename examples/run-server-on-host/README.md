@@ -2,12 +2,16 @@
 
 ## Server
 
+Run server:
+
 ```sh
 $ hakoniwa-code-runner start -c app.toml
 2022-09-05T06:51:32.207731Z  INFO hcr::server: listening on 127.0.0.1:8080
 ```
 
 ## Client
+
+Query supported programming languages:
 
 ```sh
 $ grpcurl --plaintext 127.0.0.1:8080 languages.Languages/Index
@@ -19,7 +23,11 @@ $ grpcurl --plaintext 127.0.0.1:8080 languages.Languages/Index
     }
   ]
 }
+```
 
+Run C code:
+
+```sh
 $ grpcurl -d '{ "lang": "c", "files": [{ "name": "main.c", "content": "#include <stdio.h>\nint main() { printf(\"Hello, World!\"); return 0; }" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
 {
   "status": "OK",
