@@ -7,8 +7,8 @@ name = "C (GCC)"
 
 [lang.c.compile]
 command = ["/usr/bin/gcc", "--static", "main.c", "-o", "main"]
-sandbox = "/opt/hcr/lang-c-compilebox.toml"
+sandbox = "lang-c/compilebox.toml"
 
 [lang.c.execute]
 command = ["/hako/main"]
-sandbox = "/opt/hcr/lang-c-executebox.toml"
+sandbox = "lang-c/executebox.toml"
