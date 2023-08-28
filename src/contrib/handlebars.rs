@@ -13,7 +13,7 @@ pub fn fs_read_to_string_helper(
         Some(v) => v,
         None => return Err(RenderError::new("param not found")),
     };
-    match std::fs::read_to_string(&v.render()) {
+    match std::fs::read_to_string(v.render()) {
         Ok(v) => out.write(&v)?,
         Err(e) => return Err(RenderError::new(format!("{}: {}", v, e))),
     };

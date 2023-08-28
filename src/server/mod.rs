@@ -53,7 +53,7 @@ impl Server {
 
         // Graceful shutdown feature.
         let (tx, rx) = oneshot::channel::<()>();
-        _ = tokio::spawn(async move {
+        tokio::spawn(async move {
             _ = signal::ctrl_c().await;
             _ = tx.send(());
         });
