@@ -65,42 +65,42 @@ $ grpcurl -d '{ "lang": "c", "files": [{ "name": "main.c", "content": "#include 
 Run Go code:
 
 ```sh
-$ grpcurl -d '{ "lang": "go", "files": [{ "name": "main.go", "content": "package main\nimport \"fmt\"\nfunc main() { fmt.Println(\"Hello, World!\") }" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
+$ grpcurl -d '{ "lang": "go", "files": [{ "name": "main.go", "content": "package main\nimport \"fmt\"\nfunc main() { fmt.Println(\"こんにちは世界。\") }" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
 {
   "status": "OK",
-  "stdout": "Hello, World!\n",
+  "stdout": "こんにちは世界。\n",
   "exitCode": 0,
-  "startTime": "2023-08-28T12:56:35.841592951Z",
+  "startTime": "2023-08-28T13:35:47.809065474Z",
   "realTime": {
-    "nanos": 1886227
+    "nanos": 1748005
   },
   "systemTime": {
 
   },
   "userTime": {
-    "nanos": 1784000
+    "nanos": 1576000
   },
-  "maxRss": "3640"
+  "maxRss": "3416"
 }
 ```
 
 Run Python code:
 
 ```sh
-$ grpcurl -d '{ "lang": "python", "files": [{ "name": "main.py", "content": "print(\"Hello, World!\")" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
+$ grpcurl -d '{ "lang": "python", "files": [{ "name": "main.py", "content": "print(\"你好，世界！\")" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
 {
   "status": "OK",
-  "stdout": "Hello, World!\n",
+  "stdout": "你好，世界！\n",
   "exitCode": 0,
-  "startTime": "2023-08-28T10:07:33.412847401Z",
+  "startTime": "2023-08-28T13:36:15.806599898Z",
   "realTime": {
-    "nanos": 33416373
+    "nanos": 34565068
   },
   "systemTime": {
-    "nanos": 2662000
+
   },
   "userTime": {
-    "nanos": 7996000
+    "nanos": 10640000
   },
   "maxRss": "8320"
 }
