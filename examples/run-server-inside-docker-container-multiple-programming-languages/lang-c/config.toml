@@ -1,12 +1,8 @@
-[server]
-ip = "127.0.0.1"
-port = 8080
-
 [lang.c]
-name = "C (GCC)"
+name = "C (GCC 10.2.1)"
 
 [lang.c.compile]
-command = ["/usr/bin/gcc", "--static", "main.c", "-o", "main"]
+command = ["/usr/bin/gcc", "-std=c11", "-O2", "--static", "main.c", "-o", "main"]
 sandbox = "lang-c/compilebox.toml"
 
 [lang.c.execute]
