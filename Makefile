@@ -1,4 +1,4 @@
-.PHONY: devcontainer-lang devcontainer test start-server
+.PHONY: devcontainer-lang-all devcontainer test start-server
 
 default: test
 

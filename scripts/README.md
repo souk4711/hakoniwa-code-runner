@@ -59,17 +59,17 @@ $ ./scripts/dockerbuild.sh typescript
 Pack them into one image:
 
 ```console
-$ docker build -f ./.devcontainer/Dockerfile . -t hcr-devcontainer:latest
+$ make devcontainer-lang-all
 ```
 
 Add `hakoniwa-code-runner` (build from source) to the image:
 
 ```console
-$ docker build -f ./Dockerfile . -t hcr-devcontainer-ci:latest
+$ make devcontainer
 ```
 
 Run it:
 
 ```console
-$ docker run --privileged --rm -it -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
+$ make start-server
 ```
