@@ -11,7 +11,7 @@ $ docker build . -t hcr-example-single
 Run server:
 
 ```console
-$ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-single
+$ docker run --privileged --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-single
 2022-09-05T10:27:48.867769Z  INFO hcr::server: listening on 0.0.0.0:8080
 ```
 

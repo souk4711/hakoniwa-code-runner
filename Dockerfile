@@ -1,4 +1,4 @@
-FROM hcr-devcontainer-lang:latest
+FROM hcr-devcontainer-lang-all:latest
 
 USER 1000:1000
 WORKDIR /home/hako/hcr

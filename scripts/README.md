@@ -71,5 +71,5 @@ $ docker build -f ./Dockerfile . -t hcr-devcontainer-ci:latest
 Run it:
 
 ```console
-$ docker run --privileged --group-add keep-groups --rm -it -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
+$ docker run --privileged --rm -it -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
 ```

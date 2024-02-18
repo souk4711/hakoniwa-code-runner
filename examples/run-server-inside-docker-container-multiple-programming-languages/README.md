@@ -12,7 +12,7 @@ $ docker build . -t hcr-example-multi
 Run server:
 
 ```console
-$ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-multi
+$ docker run --privileged --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-multi
 2023-08-28T10:05:49.857389Z  INFO hcr::server: listening on 0.0.0.0:8080
 ```
 
