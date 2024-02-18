@@ -14,7 +14,7 @@ Run code snippets in a variety of languages over network.
 
 ## Usage
 
-```sh
+```console
 $ hakoniwa-code-runner start -c app.toml
 2022-09-05T06:51:32.207731Z  INFO hcr::server: listening on 127.0.0.1:8080
 ```
@@ -28,7 +28,7 @@ More examples can be found in [examples](./examples/). E.g.
 
 ## Development
 
-After checking out the repo, run `make devcontainer` to build a container for
+After checking out the repo, run `make devcontainer-lang && make devcontainer` to build a container for
 development. Then, run `make test` to run the tests. Or run `make start-server`
 to start a `hakoniwa-code-runner` listening on 8080.
 

@@ -4,7 +4,7 @@
 
 Install a specific language development tools to `/opt` directory in local machine:
 
-```sh
+```console
 # Pick all
 $ ./scripts/install.sh all
 
@@ -27,7 +27,7 @@ $ ./scripts/install.sh typescript
 
 Run it:
 
-```sh
+```console
 $ cargo run start -c ./.devcontainer/app.toml
 ```
 
@@ -35,7 +35,7 @@ $ cargo run start -c ./.devcontainer/app.toml
 
 Build a specific language development environment using docker:
 
-```sh
+```console
 # Pick all
 $ ./scripts/dockerbuild.sh all
 
@@ -58,18 +58,18 @@ $ ./scripts/dockerbuild.sh typescript
 
 Pack them into one image:
 
-```sh
+```console
 $ docker build -f ./.devcontainer/Dockerfile . -t hcr-devcontainer:latest
 ```
 
 Add `hakoniwa-code-runner` (build from source) to the image:
 
-```sh
+```console
 $ docker build -f ./Dockerfile . -t hcr-devcontainer-ci:latest
 ```
 
 Run it:
 
-```sh
+```console
 $ docker run --privileged --group-add keep-groups --rm -it -p 8080:8080 --stop-signal SIGINT hcr-devcontainer-ci:latest cargo run start -c ./.devcontainer/app.toml
 ```

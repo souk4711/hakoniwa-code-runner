@@ -4,14 +4,14 @@
 
 Build docker image:
 
-```sh
+```console
 $ ./scripts/dockerbuild.sh all
 $ docker build . -t hcr-example-multi
 ```
 
 Run server:
 
-```sh
+```console
 $ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT -p 8080:8080 hcr-example-multi
 2023-08-28T10:05:49.857389Z  INFO hcr::server: listening on 0.0.0.0:8080
 ```
@@ -20,7 +20,7 @@ $ docker run --privileged --group-add keep-groups --rm -it --stop-signal SIGINT 
 
 Query supported programming languages:
 
-```sh
+```console
 $ grpcurl --plaintext 127.0.0.1:8080 languages.Languages/Index
 {
   "languages": [
@@ -42,7 +42,7 @@ $ grpcurl --plaintext 127.0.0.1:8080 languages.Languages/Index
 
 Run C code:
 
-```sh
+```console
 $ grpcurl -d '{ "lang": "c", "files": [{ "name": "main.c", "content": "#include <stdio.h>\nint main() { printf(\"Hello, World!\"); return 0; }" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
 {
   "status": "OK",
@@ -64,7 +64,7 @@ $ grpcurl -d '{ "lang": "c", "files": [{ "name": "main.c", "content": "#include 
 
 Run Go code:
 
-```sh
+```console
 $ grpcurl -d '{ "lang": "go", "files": [{ "name": "main.go", "content": "package main\nimport \"fmt\"\nfunc main() { fmt.Println(\"こんにちは世界。\") }" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
 {
   "status": "OK",
@@ -86,7 +86,7 @@ $ grpcurl -d '{ "lang": "go", "files": [{ "name": "main.go", "content": "package
 
 Run Python code:
 
-```sh
+```console
 $ grpcurl -d '{ "lang": "python", "files": [{ "name": "main.py", "content": "print(\"你好，世界！\")" }] }' --plaintext 127.0.0.1:8080 runs.Runs/Create
 {
   "status": "OK",
